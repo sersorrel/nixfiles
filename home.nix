@@ -3,6 +3,7 @@
 {
   imports = [
     ./secrets.nix
+    ./fonts.nix
     ./programs
   ];
 
