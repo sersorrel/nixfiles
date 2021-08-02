@@ -8,6 +8,20 @@
   ];
 
   options.secrets = {
+    name = lib.mkOption {
+      type = with lib.types; nullOr string;
+      default = null;
+      description = ''
+        Your full name.
+      '';
+    };
+    email = lib.mkOption {
+      type = with lib.types; nullOr string;
+      default = null;
+      description = ''
+        Your email address.
+      '';
+    };
     latitude = lib.mkOption {
       type = with lib.types; nullOr float;
       default = null;
