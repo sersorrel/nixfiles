@@ -7,5 +7,6 @@
   home.packages = with pkgs; [
     iosevka
     jost
+    source-sans-pro
   ];
 }
