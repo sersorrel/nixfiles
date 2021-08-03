@@ -6,6 +6,7 @@
     ./gammastep.nix
     ./git.nix
     ./i3
+    ./insync.nix
     ./kdeconnect.nix
     ./keepassxc.nix
     ./kitty
