@@ -7,5 +7,6 @@
     ./i3
     ./kdeconnect.nix
     ./kitty
+    ./todoist.nix
   ];
 }
