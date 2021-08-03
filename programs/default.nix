@@ -9,5 +9,6 @@
     ./keepassxc.nix
     ./kitty
     ./todoist.nix
+    ./x.nix
   ];
 }
