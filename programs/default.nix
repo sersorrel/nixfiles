@@ -2,6 +2,7 @@
   imports = [
     ./bash.nix
     ./fish
+    ./flameshot.nix
     ./gammastep.nix
     ./git.nix
     ./i3

@@ -5,6 +5,7 @@
     ./secrets.nix
     ./fonts.nix
     ./programs
+    ./workarounds.nix
   ];
 
   options.secrets = {
