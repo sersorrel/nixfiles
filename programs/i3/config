@@ -296,7 +296,7 @@ set $transparent #ffffff88
 set $translucent #28282855
 bar {
         i3bar_command exec i3bar -t
-        status_command exec i3status-rs ~/.config/i3status-rs/config.toml
+        status_command exec i3status-rs ~/.config/i3status-rust/config-default.toml
         # Place application indicators on the display most likely to be in front of me.
         tray_output HDMI-1-2 # managed by i3-tray-shuffler
         tray_output HDMI-2 # managed by i3-tray-shuffler

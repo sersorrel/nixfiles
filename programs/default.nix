@@ -5,6 +5,7 @@
     ./gammastep.nix
     ./git.nix
     ./i3
+    ./kdeconnect.nix
     ./kitty
   ];
 }
