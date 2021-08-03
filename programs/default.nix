@@ -6,6 +6,7 @@
     ./git.nix
     ./i3
     ./kdeconnect.nix
+    ./keepassxc.nix
     ./kitty
     ./todoist.nix
   ];
