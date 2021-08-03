@@ -2,6 +2,6 @@
 
 {
   home.file.".xprofile".text = ''
-    xset r rate 200 35
+    xset r rate 200 30
   '';
 }
