@@ -16,6 +16,28 @@ in
 
   config = {
     home.file.".config/i3/config".text = (builtins.readFile ./config) + "\n" + lib.strings.concatStringsSep "\n" config.programs.i3.extraConfig;
+    home.file.".config/rofi/config.rasi".text = ''
+      configuration {
+        theme: "gruvbox-dark";
+        show-icons: true;
+        icon-theme: "Paper";
+        modi: "window,run,ssh,drun";
+        monitor: "-1";
+        drun-match-fields: "name";
+        tokenize: true;
+        sort: true;
+        sorting-method: "fzf";
+        matching: "fuzzy";
+      }
+      // Hide the colon at the start of the textbox.
+      textbox-prompt-sep {
+        enabled: false;
+      }
+      // Make the application icons a reasonable size.
+      element-icon {
+        size: 1.2em;
+      }
+    '';
     programs.i3status-rust = {
       enable = true;
       package = unstable.i3status-rust;
