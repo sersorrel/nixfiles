@@ -1,6 +1,7 @@
 {
   imports = [
     ./bash.nix
+    ./discord.nix
     ./fish
     ./flameshot.nix
     ./gammastep.nix
