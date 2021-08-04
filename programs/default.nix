@@ -10,6 +10,7 @@
     ./kdeconnect.nix
     ./keepassxc.nix
     ./kitty
+    ./slack.nix
     ./todoist.nix
     ./x.nix
   ];
