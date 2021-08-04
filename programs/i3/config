@@ -67,6 +67,7 @@ bindsym $mod+Shift+b border toggle
 focus_follows_mouse no
 focus_wrapping no
 mouse_warping none
+focus_on_window_activation focus
 
 floating_modifier $mod
 
@@ -315,7 +316,5 @@ bar {
                 background $transparent
         }
 }
-
-focus_on_window_activation focus
 
 # vim: set sw=8 et:
