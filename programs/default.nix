@@ -14,6 +14,7 @@
     ./kitty
     ./slack.nix
     ./todoist.nix
+    ./vim.nix
     ./x.nix
   ];
 }
