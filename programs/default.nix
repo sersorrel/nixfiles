@@ -1,6 +1,7 @@
 {
   imports = [
     ./bash.nix
+    ./brightnessctl.nix
     ./discord.nix
     ./fish
     ./flameshot.nix
