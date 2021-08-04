@@ -5,6 +5,7 @@
     ./secrets.nix
     ./fonts.nix
     ./programs
+    ./theme.nix
     ./workarounds.nix
   ];
 
