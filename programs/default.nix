@@ -13,6 +13,7 @@
     ./keepassxc.nix
     ./kitty
     ./slack.nix
+    ./starship.nix
     ./todoist.nix
     ./vim.nix
     ./x.nix
