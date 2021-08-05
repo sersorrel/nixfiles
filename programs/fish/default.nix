@@ -1,5 +1,128 @@
-{ ... }:
+{ lib, ... }:
 
 {
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    functions = {
+      apt-provides = ''
+        apt-cache show (apt-cache search $argv[1] | awk '{ print $1 }') | sed -n '/^Package: \(.*\)$/ {s//\1/;h}; /^Provides:.*'"$argv[1]"'/ {x;p}'
+      '';
+      copy = {
+        wraps = "xsel";
+        body = "xsel -sel clip $argv";
+      };
+    } // lib.attrsets.genAttrs [ "ffmpeg" "ffplay" "ffprobe" ] (binary: {
+      wraps = binary;
+      body = "command ${binary} -hide_banner $argv";
+    }) // {
+      bang_binding = ''
+        switch (commandline -t)
+          case "!"
+            commandline -t $history[1]
+            commandline -f repaint
+          case "*"
+            commandline -i !
+        end
+      '';
+      fish_user_key_bindings = ''
+        # https://github.com/fish-shell/fish-shell/wiki/Bash-Style-Command-Substitution-and-Chaining-
+        bind ! bang_binding
+        # https://github.com/fish-shell/fish-shell/issues/3011
+        bind \cf accept-autosuggestion
+        # we have fzf for more sophisticated searching
+        bind \e\[A history-prefix-search-backward
+        bind \e\[B history-prefix-search-forward
+      '';
+      https = {
+        wraps = "http";
+        body = "http --default-scheme https $argv";
+      };
+      icat = "kitty +kitten icat $argv";
+      kd = {
+        wraps = "fd";
+        body = "kitty +kitten hyperlinked_fd $argv";
+      };
+      kg = {
+        wraps = "rg";
+        body = "kitty +kitten hyperlinked_rg $argv";
+      };
+      la = ''
+        if test -n $argv[1]
+          if test -d $argv[1]
+            ls -aa $argv[2..] -- $argv[1]
+          else if test -f $argv[1]
+            less -N $argv[2..] -- $argv[1]
+          else
+            ls -aa $argv
+          end
+        else
+          ls -aa
+        end
+      '';
+      less = {
+        wraps = "less";
+        body = "command less -N $argv";
+      };
+      l = ''
+        if test -n $argv[1]
+          if test -d $argv[1]
+            ls $argv[2..] -- $argv[1]
+          else if test -f $argv[1]
+            less -N $argv[2..] -- $argv[1]
+          else
+            ls $argv
+          end
+        else
+          ls
+        end
+      '';
+      ll = {
+        wraps = "exa";
+        body = "ls -al $argv";
+      };
+      ls = {
+        wraps = "exa";
+        body = "exa --group -F $argv";
+      };
+      mkcd = {
+        wraps = "mkdir";
+        body = "mkdir -p -- $argv[1] && cd -- $argv[1]";
+      };
+      now = "date +%s";
+      oops = "history delete --exact --case-sensitive -- $history[1]";
+      rm = {
+        wraps = "rm";
+        body = "command rm --interactive=never $argv";
+      };
+      rn = ''
+        set filename (date +"%Y-%m-%d-%H%M%S")
+        if test (count $argv) -gt 0
+          set filename "$filename"-(string join -- - $argv)
+        end
+        mkdir -p ~/.rn
+        mkdir ~/.rn/$filename
+        cd ~/.rn/$filename
+      '';
+      v = {
+        wraps = "gvim";
+        body = "gvim $argv";
+      };
+      whenis = "date -d @$argv[1]";
+      yeet = ''
+        echo "really yeet "(pwd)"? (ctrl-c if not)"
+        if read
+          rm -r (pwd)
+          cd ..
+        end
+      '';
+    };
+    interactiveShellInit = ''
+      # Most modern terminals automatically rewrap text, don't try and preempt them.
+      set -g fish_handle_reflow 0
+    '';
+    shellInit = ''
+      function fish_greeting
+      end
+    '';
+  };
 }
