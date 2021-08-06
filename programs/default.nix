@@ -2,6 +2,7 @@
   imports = [
     ./bash.nix
     ./brightnessctl.nix
+    ./dircolors.nix
     ./discord.nix
     ./exa.nix
     ./fd.nix
