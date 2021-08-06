@@ -40,6 +40,9 @@ in
   networking.wireless.interfaces = [ "wlp3s0" ];
   networking.wireless.networks = config.secrets.wifi;
 
+  # Use Google's DNS servers (for now, at least).
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
+
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
