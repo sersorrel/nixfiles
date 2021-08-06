@@ -3,6 +3,8 @@
     ./bash.nix
     ./brightnessctl.nix
     ./discord.nix
+    ./exa.nix
+    ./fd.nix
     ./fish
     ./flameshot.nix
     ./gammastep.nix
@@ -12,6 +14,7 @@
     ./kdeconnect.nix
     ./keepassxc.nix
     ./kitty
+    ./ripgrep.nix
     ./slack.nix
     ./starship.nix
     ./todoist.nix
