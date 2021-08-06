@@ -17,5 +17,6 @@
     ./todoist.nix
     ./vim.nix
     ./x.nix
+    ./xclip.nix
   ];
 }
