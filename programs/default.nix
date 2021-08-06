@@ -15,6 +15,7 @@
     ./kdeconnect.nix
     ./keepassxc.nix
     ./kitty
+    ./less.nix
     ./ripgrep.nix
     ./slack.nix
     ./starship.nix
