@@ -10,6 +10,7 @@
       longitude = config.secrets.longitude;
       tray = true;
       # TODO: set provider to geoclue2 if possible
+      temperature.day = 6500;
     };
   };
 }
