@@ -85,6 +85,12 @@
       options = [ "bind" ];
     };
 
+  fileSystems."/tmp" =
+    { device = "/nix/tmp";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
   swapDevices = [ ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

@@ -25,6 +25,8 @@ in
 
   # Enable periodic TRIM (by default once per week).
   services.fstrim.enable = true;
+  # Empty /tmp on boot.
+  boot.cleanTmpDir = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
