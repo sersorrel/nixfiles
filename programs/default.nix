@@ -9,6 +9,7 @@
     ./fd.nix
     ./fish
     ./flameshot.nix
+    ./fzf.nix
     ./gammastep.nix
     ./git.nix
     ./i3
