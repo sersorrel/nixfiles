@@ -17,7 +17,7 @@
       hash = ''!f() { git rev-parse "''${1:-HEAD}" | GREP_COLORS="ms=34;1" grep --color "$(git rev-parse --short=0 "''${1:-HEAD}")"; }; f'';
       ref = "show -s --pretty=reference";
       staged = "diff --cached";
-      remotes = "remotes -vv";
+      remotes = "remote -vv";
       branches = "branch -vv --list";
       stashes = "stash list";
       tags = "tag --list";
