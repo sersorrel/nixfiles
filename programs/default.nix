@@ -15,6 +15,7 @@
     ./insync.nix
     ./kdeconnect.nix
     ./keepassxc.nix
+    ./keychain.nix
     ./kitty
     ./less.nix
     ./ripgrep.nix
