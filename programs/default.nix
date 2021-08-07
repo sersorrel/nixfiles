@@ -1,5 +1,6 @@
 {
   imports = [
+    ./any-nix-shell.nix
     ./bash.nix
     ./brightnessctl.nix
     ./dircolors.nix
