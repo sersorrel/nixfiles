@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     iosevka
     jost
+    meslo-lgs-nf
     source-sans-pro
   ];
 }
