@@ -84,7 +84,7 @@ in
           }
           {
             block = "disk_space";
-            format = builtins.fromJSON ''"\uF2ED"'' + " {available:1; M}";
+            format = "/ {available:1; M}";
             path = "/";
             warning = 10;
             alert = 5;
