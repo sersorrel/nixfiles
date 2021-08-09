@@ -6,6 +6,7 @@
     ./programs
     ./secrets
     ./theme.nix
+    ./variables.nix
     ./workarounds.nix
   ];
 
