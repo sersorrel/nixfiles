@@ -2,6 +2,7 @@
   imports = [
     ./any-nix-shell.nix
     ./bash.nix
+    ./bat.nix
     ./brightnessctl.nix
     ./dircolors.nix
     ./discord.nix
