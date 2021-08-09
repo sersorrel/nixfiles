@@ -153,6 +153,7 @@ in
     extraGroups = [
       "colord" # Allow access to monitor calibration devices.
       "wheel" # Enable ‘sudo’ for the user.
+      "adbusers" # Allow use of adb.
     ];
     initialPassword = config.secrets.password;
     shell = pkgs.fish;
@@ -222,6 +223,8 @@ in
 
   # Suspend on lid close, even when an external monitor is plugged in.
   services.logind.lidSwitchDocked = "suspend";
+
+  programs.adb.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
