@@ -95,6 +95,15 @@ in
     i3status-rust
     rofi
   ];
+  # Start XDG-compliant autostart things when using i3.
+  # based on https://github.com/NixOS/nixpkgs/pull/127367
+  systemd.user.targets.i3-xdg-autostart = {
+    description = "Run XDG autostart files for i3";
+    wants = [ "xdg-desktop-autostart.target" ];
+    after = [ "graphical-session.target" "xdg-desktop-autostart.target" ];
+    bindsTo = [ "graphical-session.target" ];
+  };
+  services.xserver.windowManager.i3.extraSessionCommands = "/run/current-system/systemd/bin/systemctl --user start i3-xdg-autostart.target";
 
   # Enable a compositor.
   services.picom = {
