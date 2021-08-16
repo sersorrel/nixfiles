@@ -273,6 +273,8 @@ bindsym $mod+Ctrl+Shift+9 move container to workspace number 19; workspace numbe
 bindsym $mod+Shift+bracketleft move container to workspace prev; workspace prev
 bindsym $mod+Shift+bracketright move container to workspace next; workspace next
 
+bindsym $mod+x exec --no-startup-id exec i3-workspace-swap
+
 bindsym $mod+o scratchpad show
 
 # reload the configuration file
