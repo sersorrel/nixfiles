@@ -19,6 +19,20 @@ in
     ./secrets
   ];
 
+  nixpkgs.overlays = [
+    (self: super: {
+      picom = super.picom.overrideAttrs (old: {
+        src = pkgs.fetchFromGitHub {
+          owner = "yshui";
+          repo = "picom";
+          rev = "78e8666498490ae25349a44f156d0811b30abb70";
+          sha256 = "0lx30w9ccrivnm05i1m67wvhkiw166i8v0gdj6ql6jganrwnwzwk";
+          fetchSubmodules = true;
+        };
+      });
+    })
+  ];
+
   # Override various parts of the detected hardware configuration.
   fileSystems."/".options = [ "defaults" "size=8G" "mode=755" ];
   fileSystems."/persist".neededForBoot = true;
