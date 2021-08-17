@@ -178,9 +178,8 @@ in
       "wheel" # Enable ‘sudo’ for the user.
       "adbusers" # Allow use of adb.
     ];
-    initialPassword = config.secrets.password;
     shell = pkgs.fish;
-  };
+  } // config.secrets.userOptions;
 
   # Currently ~/.profile isn't sourced in graphical sessions, let's fix that.
   # https://github.com/NixOS/nixpkgs/issues/5200

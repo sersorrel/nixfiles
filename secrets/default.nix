@@ -34,10 +34,9 @@
         Your longitude, between -180 and 180.
       '';
     };
-    password = lib.mkOption {
-      type = lib.types.str;
+    userOptions = lib.mkOption {
       description = ''
-        The initial password for the primary user.
+        Additional options (e.g. the password) for the primary user.
       '';
     };
     wifi = lib.mkOption {
