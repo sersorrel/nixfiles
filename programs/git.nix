@@ -65,6 +65,7 @@
       "*.log"
       "*.out"
       "*.o"
+      ".nix-script-cache/"
     ];
     extraConfig = {
       core = {
