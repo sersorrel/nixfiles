@@ -31,6 +31,16 @@ in
         };
       });
     })
+    (self: super: {
+      i3lock-color = super.i3lock-color.overrideAttrs (old: {
+        src = pkgs.fetchFromGitHub {
+          owner = "sersorrel";
+          repo = "i3lock-color";
+          rev = "8ab09b8d3fdd87ac0b14a3f419281a4791fa2c78";
+          sha256 = "1l25x4wx3ar6lfpxcm5whzpxyblcs8blf4gqi3vh2ynvn7cn1qib";
+        };
+      });
+    })
   ];
 
   # Override various parts of the detected hardware configuration.
@@ -108,6 +118,7 @@ in
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
     i3status-rust
     rofi
+    i3lock-color
   ];
   # Start XDG-compliant autostart things when using i3.
   # based on https://github.com/NixOS/nixpkgs/pull/127367
