@@ -28,6 +28,7 @@
     ./slack.nix
     ./starship.nix
     ./todoist.nix
+    ./unicode.nix
     ./vim.nix
     ./x
     ./xclip.nix
