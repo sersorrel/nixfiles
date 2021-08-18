@@ -20,6 +20,7 @@
     ./keychain.nix
     ./kitty
     ./less.nix
+    ./nemo.nix
     ./nix-script.nix
     ./ripgrep.nix
     ./slack.nix

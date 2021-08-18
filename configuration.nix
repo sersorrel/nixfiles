@@ -115,7 +115,7 @@ in
   programs.dconf.enable = true;
   services.dbus.packages = with pkgs; [ gnome.dconf ];
 
-  # Make nautilus happy.
+  # Make nautilus/nemo happy.
   services.gvfs.enable = true;
 
   # Set up the i3 window manager and LightDM display manager.
@@ -247,7 +247,6 @@ in
     pciutils
     nvtop
     nvidia-offload # defined above
-    gnome.nautilus
     gnome.file-roller
     gnome.eog
     gnome.totem
