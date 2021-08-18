@@ -41,6 +41,15 @@ in
         };
       });
     })
+    (self: super: {
+      gnome = super.gnome.overrideScope' (self': super': {
+        totem = super'.totem.overrideAttrs (old: {
+          patches = (old.patches or []) ++ [
+            ./patches/totem-0001-seek-length.patch
+          ];
+        });
+      });
+    })
   ];
 
   # Override various parts of the detected hardware configuration.
@@ -241,6 +250,7 @@ in
     gnome.nautilus
     gnome.file-roller
     gnome.eog
+    gnome.totem
     glimpse
     # dependency required for glimpse
     graphviz
