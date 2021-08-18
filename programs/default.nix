@@ -13,6 +13,7 @@
     ./fzf.nix
     ./gammastep.nix
     ./git.nix
+    ./htop.nix
     ./i3
     ./insync.nix
     ./kdeconnect.nix
