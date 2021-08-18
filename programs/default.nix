@@ -4,6 +4,7 @@
     ./bash.nix
     ./bat.nix
     ./brightnessctl.nix
+    ./colordiff.nix
     ./dircolors.nix
     ./discord.nix
     ./exa.nix
