@@ -27,7 +27,7 @@
     ./starship.nix
     ./todoist.nix
     ./vim.nix
-    ./x.nix
+    ./x
     ./xclip.nix
   ];
 }
