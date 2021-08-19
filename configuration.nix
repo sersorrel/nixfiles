@@ -285,6 +285,12 @@ in
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # Enable Avahi (i.e. mDNS support).
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
