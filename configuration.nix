@@ -118,6 +118,12 @@ in
   # Make nautilus/nemo happy.
   services.gvfs.enable = true;
 
+  # Enable Samba, and allow SMBv1.
+  services.samba.enable = true;
+  services.samba.extraConfig = ''
+    client min protocol = NT1
+  '';
+
   # Set up the i3 window manager and LightDM display manager.
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.defaultSession = "none+i3";
