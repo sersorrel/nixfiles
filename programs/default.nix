@@ -7,6 +7,7 @@
     ./colordiff.nix
     ./dircolors.nix
     ./discord.nix
+    ./dunst.nix
     ./exa.nix
     ./fd.nix
     ./fish
