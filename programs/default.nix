@@ -25,6 +25,7 @@
     ./less.nix
     ./nemo.nix
     ./nix-script.nix
+    ./playerctl.nix
     ./ripgrep.nix
     ./slack.nix
     ./starship.nix
