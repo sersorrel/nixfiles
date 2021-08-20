@@ -23,6 +23,7 @@ in
     };
     settings = {
       global = {
+        monitor = 1;
         geometry = "300x5-30+30";
         padding = 16;
         horizontal_padding = 16;
