@@ -29,6 +29,7 @@
     ./ripgrep.nix
     ./slack.nix
     ./starship.nix
+    ./steam.nix
     ./todoist.nix
     ./unicode.nix
     ./vim.nix
