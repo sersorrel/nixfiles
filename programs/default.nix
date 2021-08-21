@@ -10,6 +10,7 @@
     ./dunst.nix
     ./exa.nix
     ./fd.nix
+    ./ffmpeg.nix
     ./fish
     ./flameshot.nix
     ./fzf.nix
