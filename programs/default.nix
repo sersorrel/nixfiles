@@ -20,6 +20,7 @@
     ./i3
     ./insync.nix
     ./kdeconnect.nix
+    ./kdenlive.nix
     ./keepassxc.nix
     ./keychain.nix
     ./kitty
