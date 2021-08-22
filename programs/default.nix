@@ -34,7 +34,7 @@
     ./steam.nix
     ./todoist.nix
     ./unicode.nix
-    ./vim.nix
+    ./vim
     ./x
     ./xclip.nix
   ];
