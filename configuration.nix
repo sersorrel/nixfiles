@@ -176,7 +176,12 @@ in
   console.useXkbConfig = true;
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
+  services.printing.drivers = with pkgs; [
+    brlaser
+    brgenml1lpr
+    brgenml1cupswrapper
+  ];
 
   # Enable sound.
   sound.enable = true;
@@ -233,6 +238,7 @@ in
       "steam"
       "steam-original"
       "steam-runtime"
+      "brgenml1lpr"
     ];
     permittedInsecurePackages = [
       # Required for displaycal, https://github.com/NixOS/nixpkgs/issues/124590
