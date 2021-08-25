@@ -124,6 +124,9 @@
       submodules = {
         recurse = true;
       };
+      tag = {
+        sort = "version:refname";
+      };
       versionsort = {
         suffix = builtins.concatMap (v: [v ("-" + v)]) [
           "a"
