@@ -92,7 +92,7 @@ in
           {
             block = "net";
             device = "wlp3s0";
-            format = "";
+            format = "{ssid}";
           }
           {
             block = "net";
