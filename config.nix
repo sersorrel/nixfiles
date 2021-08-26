@@ -1,5 +1,9 @@
 { pkgs, ... }:
 
+let
+  removeAttrs = attrs: pkgs.lib.attrsets.filterAttrs (attr: _: builtins.all (x: attr != x) attrs);
+  vim_config = removeAttrs ["override" "overrideDerivation" "overrideAttrs"] (pkgs.callPackage ./programs/vim/vim.nix {});
+in
 {
   allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
     "discord"
@@ -8,14 +12,6 @@
     "todoist-electron"
   ];
   packageOverrides = pkgs: {
-    vim_configured = pkgs.vim_configurable.customize {
-      name = "vim";
-      wrapGui = true;
-      vimrcConfig.packages.pkgs = with pkgs.vimPlugins; {
-        start = [
-          vim-sensible
-        ];
-      };
-    };
+    vim_configured = pkgs.vim_configurable.customize vim_config;
   };
 }
