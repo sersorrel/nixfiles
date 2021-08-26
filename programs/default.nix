@@ -29,6 +29,7 @@
     ./nix-script.nix
     ./playerctl.nix
     ./ripgrep.nix
+    ./signal.nix
     ./slack.nix
     ./starship.nix
     ./steam.nix
