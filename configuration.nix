@@ -144,6 +144,8 @@ in
     bindsTo = [ "graphical-session.target" ];
   };
   services.xserver.windowManager.i3.extraSessionCommands = "/run/current-system/systemd/bin/systemctl --user start i3-xdg-autostart.target";
+  # Propagate variables like $DISPLAY to applications activated via D-Bus.
+  services.xserver.updateDbusEnvironment = true;
 
   # Enable a compositor.
   services.picom = {
