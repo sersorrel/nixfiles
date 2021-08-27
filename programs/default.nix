@@ -8,6 +8,7 @@
     ./dircolors.nix
     ./discord.nix
     ./dunst.nix
+    ./evince.nix
     ./exa.nix
     ./fd.nix
     ./ffmpeg.nix
