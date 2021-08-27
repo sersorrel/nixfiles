@@ -5,6 +5,7 @@
     ./bat.nix
     ./brightnessctl.nix
     ./colordiff.nix
+    ./dconf-editor.nix
     ./dircolors.nix
     ./discord.nix
     ./dunst.nix
