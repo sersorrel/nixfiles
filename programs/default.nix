@@ -39,6 +39,7 @@
     ./todoist.nix
     ./unicode.nix
     ./vim
+    ./wine.nix
     ./x
     ./xclip.nix
   ];
