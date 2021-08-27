@@ -21,6 +21,7 @@
     ./htop.nix
     ./i3
     ./insync.nix
+    ./jq.nix
     ./kdeconnect.nix
     ./kdenlive.nix
     ./keepassxc.nix
