@@ -316,8 +316,8 @@ bindsym $mod+Shift+x mode $mode_rearrange
 
 set $mode_bluetooth "bluetooth: (e)nable, (d)isable"
 mode $mode_bluetooth {
-        bindsym e exec rfkill unblock bluetooth; mode "default"
-        bindsym d exec rfkill block bluetooth; mode "default"
+        bindsym e exec bluetoothctl -- power on; mode "default"
+        bindsym d exec bluetoothctl -- power off; mode "default"
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+b mode "default"
