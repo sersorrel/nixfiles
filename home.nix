@@ -7,6 +7,7 @@
     ./scripts
     ./secrets
     ./theme.nix
+    ./timers.nix
     ./variables.nix
     ./workarounds.nix
   ];
