@@ -2,6 +2,9 @@
 
 let
   unstable = import <nixos-unstable> {};
+  fa-bluetooth-b = builtins.fromJSON ''"\uF294"'';
+  fa-microphone-slash = builtins.fromJSON ''"\uF131"'';
+  fa-tv = builtins.fromJSON ''"\uF26C"'';
 in
 {
   options = {
@@ -73,7 +76,13 @@ in
           };
         };
         blocks = [
-          # TODO: dunst disabled, mic muted, E:D time
+          {
+            block = "custom";
+            command = ''pacmd dump | rg -q "set-source-mute $(pacmd dump | rg -or '$1' 'set-default-source (.+)$') yes" && printf '${fa-microphone-slash}';'';
+            on_click = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+            hide_when_empty = true;
+            shell = "sh";
+          }
           {
             block = "disk_space";
             format = builtins.fromJSON ''"\uF15B"'' + " {available:1; M}";
@@ -105,7 +114,11 @@ in
             device = "enp4s0f1";
             format = "";
           }
-          # TODO: bluetooth
+          {
+            block = "custom";
+            command = ''if [ "$(dbus-send --system --dest=org.bluez --print-reply=literal /org/bluez/hci0 org.freedesktop.DBus.Properties.Get string:org.bluez.Adapter1 string:Powered | grep "boolean true")" ]; then printf '${fa-bluetooth-b}'; else printf '${fa-bluetooth-b} ×'; fi'';
+            shell = "sh";
+          }
           {
             block = "memory";
             clickable = false;
@@ -119,7 +132,11 @@ in
             format_swap = "{swap_used:1;_G*_}/{swap_total:1;_G*_}";
             warning_swap = 50;
           }
-          # TODO: Nvidia VRAM usage, picom state
+          {
+            block = "custom";
+            command = ''printf '${fa-tv} '; nvidia-smi --query-gpu=memory.used,memory.total --format=csv,noheader,nounits | awk 'BEGIN { FS = ", " } ; { printf "%.1f/%.1f",$1/1000,$2/1000 }';'';
+            shell = "sh";
+          }
           {
             block = "battery";
             format = "{percentage:1} {time} {power:1}";
