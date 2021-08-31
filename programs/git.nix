@@ -71,6 +71,7 @@
       core = {
         editor = "vim";
         whitespace = "blank-at-eol,blank-at-eof,space-before-tab";
+        pager = "some";
       };
       color = {
         ui = "auto";

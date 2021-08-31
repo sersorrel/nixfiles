@@ -35,6 +35,7 @@
     ./rustup.nix
     ./signal.nix
     ./slack.nix
+    ./some.nix
     ./starship.nix
     ./steam.nix
     ./todoist.nix
