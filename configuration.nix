@@ -268,6 +268,7 @@ in
     # dependency required for glimpse
     graphviz
     displaycal
+    gcc
   ];
 
   # Make Steam Work™.

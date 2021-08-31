@@ -32,6 +32,7 @@
     ./nix-script.nix
     ./playerctl.nix
     ./ripgrep.nix
+    ./rustup.nix
     ./signal.nix
     ./slack.nix
     ./starship.nix
