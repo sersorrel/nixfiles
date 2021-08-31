@@ -235,8 +235,8 @@ bindsym $mod+Ctrl+6 workspace number 16
 bindsym $mod+Ctrl+7 workspace number 17
 bindsym $mod+Ctrl+8 workspace number 18
 bindsym $mod+Ctrl+9 workspace number 19
-bindsym $mod+bracketleft workspace prev
-bindsym $mod+bracketright workspace next
+bindsym $mod+bracketleft workspace prev_on_output
+bindsym $mod+bracketright workspace next_on_output
 
 # nop out these (so other apps can use them as global hotkeys)
 bindsym $mod+F1 exec true
