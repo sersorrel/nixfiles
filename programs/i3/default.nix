@@ -15,6 +15,12 @@ in
   };
 
   config = {
+    gtk.gtk2.extraConfig = ''
+      gtk-decoration-layout = "icon:menu"
+    '';
+    gtk.gtk3.extraConfig = {
+      gtk-decoration-layout = "icon:menu";
+    };
     home.file.".config/i3/config".text = (builtins.readFile ./config) + "\n" + lib.strings.concatStringsSep "\n" config.programs.i3.extraConfig;
     home.file.".config/rofi/config.rasi".text = ''
       configuration {

@@ -16,6 +16,8 @@ title_align center
 
 default_border normal 0
 default_floating_border normal 0
+# even windows with CSD should get a titlebar https://github.com/i3/i3/issues/2255
+for_window [tiling] border normal 0
 
 workspace_layout tabbed
 
