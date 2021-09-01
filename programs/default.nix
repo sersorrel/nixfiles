@@ -38,6 +38,7 @@
     ./some.nix
     ./starship.nix
     ./steam.nix
+    ./talon
     ./todoist.nix
     ./unicode.nix
     ./vim

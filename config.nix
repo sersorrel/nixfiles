@@ -9,6 +9,8 @@ in
     "discord"
     "insync"
     "slack"
+    "talon"
+    "talon-beta"
     "todoist-electron"
   ];
   packageOverrides = pkgs: {

@@ -45,5 +45,33 @@
         WiFi networks to automatically connect to (see networking.wireless.networks).
       '';
     };
+    talon-beta = lib.mkOption {
+      type = with lib.types; nullOr submodule {
+        options = {
+          url = lib.mkOption {
+            type = string;
+            description = ''
+              URL which the Talon beta can be downloaded from.
+            '';
+          };
+          sha256 = lib.mkOption {
+            type = string;
+            description = ''
+              SHA256 hash of the Talon beta.
+            '';
+          };
+          version = lib.mkOption {
+            type = string;
+            description = ''
+              The version number of the Talon beta.
+            '';
+          };
+        };
+      };
+      default = null;
+      description = ''
+        Download details for the Talon beta.
+      '';
+    };
   };
 }
