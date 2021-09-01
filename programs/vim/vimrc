@@ -403,3 +403,23 @@ set guioptions-=m
 set guioptions-=T
 " Use a nicer font than the default.
 set guifont=Iosevka\ 10
+" Match Kitty's line spacing.
+set linespace=2
+
+if has('gui_running')
+  " Paste with ctrl-shift-v (since gvim can use ctrl-shift!)
+  noremap <C-S-v> <C-r><C-o>+
+  inoremap <C-S-v> <C-r><C-o>+
+  xnoremap <C-S-c> "+y
+
+  " Highlight occurrences of the selected word on double-click
+  " https://vim.fandom.com/wiki/Highlight_all_search_pattern_matches
+  function! s:makepattern(text)
+    let pat = escape(a:text, '\')
+    let pat = substitute(pat, '\_s\+$', '\\s\\*', '')
+    let pat = substitute(pat, '^\_s\+', '\\s\\*', '')
+    let pat = substitute(pat, '\_s\+',  '\\_s\\+', 'g')
+    return '\\V' . escape(pat, '\"')
+  endfunction
+  noremap <2-LeftMouse> <2-LeftMouse>:<c-u>let @/="<C-R>=<SID>makepattern(@*)<CR>"<CR>:set hls<CR>
+endif
