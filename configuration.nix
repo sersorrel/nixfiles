@@ -264,6 +264,7 @@ in
     gnome.file-roller
     gnome.eog
     gnome.totem
+    gnome.gnome-system-monitor
     glimpse
     # dependency required for glimpse
     graphviz
