@@ -1,4 +1,6 @@
 { stdenv
+, copyDesktopItems
+, makeDesktopItem
 , dbus
 , fetchurl
 , fontconfig
@@ -34,6 +36,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     qt5.wrapQtAppsHook
+    copyDesktopItems
   ];
 
   buildInputs = [
@@ -88,6 +91,14 @@ stdenv.mkDerivation rec {
 
     runHook postInstall
   '';
+
+  desktopItems = [
+    (makeDesktopItem {
+      name = "talon";
+      desktopName = "Talon";
+      exec = "talon";
+    })
+  ];
 
   meta = with lib; {
     description = "Powerful hands-free input";

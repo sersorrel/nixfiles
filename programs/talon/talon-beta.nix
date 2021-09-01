@@ -1,4 +1,6 @@
 { stdenv
+, copyDesktopItems
+, makeDesktopItem
 , dbus
 , fetchurl
 , fontconfig
@@ -31,6 +33,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     qt5.wrapQtAppsHook
+    copyDesktopItems
   ];
 
   buildInputs = [
@@ -81,10 +84,18 @@ stdenv.mkDerivation rec {
       --set-rpath $libPath \
       $out/talon
 
-    ln -s "$out/talon" "$out/bin/talon"
+    ln -s "$out/talon" "$out/bin/talon-beta"
 
     runHook postInstall
   '';
+
+  desktopItems = [
+    (makeDesktopItem {
+      name = "talon-beta";
+      desktopName = "Talon (beta)";
+      exec = "talon-beta";
+    })
+  ];
 
   meta = with lib; {
     description = "Powerful hands-free input";
