@@ -2,6 +2,7 @@
 , copyDesktopItems
 , makeDesktopItem
 , makeWrapper
+, writeShellScript
 , dbus
 , fetchurl
 , fontconfig
@@ -105,6 +106,9 @@ stdenv.mkDerivation rec {
 
     mkdir -p $out/bin
     ln -s "$out/lib/talon/talon" "$out/bin/talon"
+    ln -s ${writeShellScript "talon-repl" ''exec ~/.talon/bin/repl "$@"''} $out/bin/talon-repl
+    wrapProgram $out/bin/talon-repl \
+      --set   LD_LIBRARY_PATH "$out/lib/talon/lib:$out/lib/talon/resources/python/lib:$out/lib/talon/resources/pypy/lib:${libPath}"
 
     runHook postInstall
   '';
