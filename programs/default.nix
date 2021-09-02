@@ -45,5 +45,6 @@
     ./wine.nix
     ./x
     ./xclip.nix
+    ./youtube-dl.nix
   ];
 }
