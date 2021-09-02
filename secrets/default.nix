@@ -46,28 +46,28 @@
       '';
     };
     talon-beta = lib.mkOption {
-      type = with lib.types; nullOr submodule {
+      type = with lib.types; nullOr (submodule {
         options = {
           url = lib.mkOption {
-            type = string;
+            type = str;
             description = ''
               URL which the Talon beta can be downloaded from.
             '';
           };
           sha256 = lib.mkOption {
-            type = string;
+            type = str;
             description = ''
               SHA256 hash of the Talon beta.
             '';
           };
           version = lib.mkOption {
-            type = string;
+            type = str;
             description = ''
               The version number of the Talon beta.
             '';
           };
         };
-      };
+      });
       default = null;
       description = ''
         Download details for the Talon beta.

@@ -23,4 +23,8 @@
       };
     };
   })
+  (self: super: {
+    talon = super.callPackage ./programs/talon/talon.nix {};
+    talon-beta = super.callPackage ./programs/talon/talon-beta.nix {};
+  })
 ]
