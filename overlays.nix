@@ -25,6 +25,8 @@
   })
   (self: super: {
     talon = super.callPackage ./programs/talon/talon.nix {};
-    talon-beta = super.callPackage ./programs/talon/talon-beta.nix {};
+    talon-beta = super.callPackage ./programs/talon/talon-beta.nix {
+      srcs = (import ./secrets/secrets.nix { inherit (super) lib; }).secrets.talon-beta;
+    };
   })
 ]

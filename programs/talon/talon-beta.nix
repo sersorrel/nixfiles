@@ -18,11 +18,8 @@
 , xorg
 , xz
 , zlib
+, srcs ? null
 }:
-
-let
-  srcs = (import ../../secrets/secrets.nix { inherit lib; }).secrets.talon-beta;
-in
 
 assert srcs != null;
 stdenv.mkDerivation rec {
