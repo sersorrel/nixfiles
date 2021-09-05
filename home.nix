@@ -10,6 +10,7 @@
     ./timers.nix
     ./variables.nix
     ./workarounds.nix
+    ./xdg.nix
   ];
 
   nixpkgs.overlays = import ./overlays.nix;

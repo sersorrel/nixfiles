@@ -29,7 +29,7 @@ lib.lists.fold lib.attrsets.recursiveUpdate {} [
     home.sessionVariables.XCURSOR_THEME = "Paper";
   }
   (if lib.pathExists ./secrets/bell.wav then {
-    home.file.".local/share/sounds/honk/index.theme".text = ''
+    xdg.dataFile."sounds/honk/index.theme".text = ''
       [Sound Theme]
       Name=honk
       Directories=stereo
@@ -37,6 +37,6 @@ lib.lists.fold lib.attrsets.recursiveUpdate {} [
       [stereo]
       OutputProfile=stereo
     '';
-    home.file.".local/share/sounds/honk/stereo/bell.wav".source = ./secrets/bell.wav;
+    xdg.dataFile."sounds/honk/stereo/bell.wav".source = ./secrets/bell.wav;
   } else {})
 ]

@@ -5,7 +5,7 @@
   home.packages = with pkgs; [
     vim_configured
   ];
-  home.file.".local/share/applications/vim.desktop".text = ''
+  xdg.dataFile."applications/vim.desktop".text = ''
     [Desktop Entry]
     Name=Vim
     Icon=vim

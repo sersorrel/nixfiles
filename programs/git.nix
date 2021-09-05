@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  home.file.".config/git/message".text = "\n";
+  xdg.configFile."git/message".text = "\n";
   programs.git = {
     enable = true;
     userName = config.secrets.name;
@@ -78,7 +78,7 @@
       };
       commit = {
         verbose = true;
-        template = toString ~/.config/git/message;
+        template = "${config.xdg.configHome}/git/message";
       };
       diff = {
         indentHeuristic = true;

@@ -24,8 +24,8 @@ in
     gtk.gtk3.extraConfig = {
       gtk-decoration-layout = "icon:menu";
     };
-    home.file.".config/i3/config".text = (builtins.readFile ./config) + "\n" + lib.strings.concatStringsSep "\n" config.programs.i3.extraConfig;
-    home.file.".config/rofi/config.rasi".text = ''
+    xdg.configFile."i3/config".text = (builtins.readFile ./config) + "\n" + lib.strings.concatStringsSep "\n" config.programs.i3.extraConfig;
+    xdg.configFile."rofi/config.rasi".text = ''
       configuration {
         theme: "gruvbox-dark";
         show-icons: true;
