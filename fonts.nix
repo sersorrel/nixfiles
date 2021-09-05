@@ -8,6 +8,8 @@
     iosevka
     jost
     meslo-lgs-nf
+    noto-fonts
+    noto-fonts-cjk
     source-sans-pro
   ];
 }
