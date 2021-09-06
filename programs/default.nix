@@ -18,6 +18,7 @@
     ./fzf.nix
     ./gammastep.nix
     ./git.nix
+    ./hexchat
     ./htop.nix
     ./i3
     ./insync.nix
