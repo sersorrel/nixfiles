@@ -64,6 +64,15 @@ let
       sha256 = "0kv0s85wbcxn9hrvml4hdzbpf49b1wwr3nk6gsz3p5rvfs6fbvmm";
     };
   };
+  vim-textobj-line = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-textobj-line";
+    src = pkgs.fetchFromGitHub {
+      owner = "kana";
+      repo = "vim-textobj-line";
+      rev = "0a78169a33c7ea7718b9fa0fad63c11c04727291";
+      sha256 = "0mppgcmb83wpvn33vadk0wq6w6pg9cq37818d1alk6ka0fdj7ack";
+    };
+  };
 in
 {
   name = "vim";
@@ -95,6 +104,7 @@ in
       vim-pythonsense
       vim-textobj-comment
       vim-textobj-entire
+      vim-textobj-line
       vim-textobj-user
       # Keybinds
       conflict-marker-vim
