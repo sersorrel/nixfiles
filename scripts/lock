@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-script-bash
-#!runtimeInputs imagemagick
+#!runtimeInputs imagemagick dunst
 # vim: set ft=bash:
 
 # locks the screen, then forks
@@ -40,7 +40,10 @@ else
 	printf 'Lockscreen up-to-date.\n'
 fi
 
+pkill -USR1 dunst || true
+
 i3lock-color \
+	--nofork \
 	--fill \
 	--clock \
 	--force-clock \
@@ -78,4 +81,7 @@ i3lock-color \
 	--password-box \
 	--pass-media-keys \
 	--pass-screen-keys \
-	--pass-textier-keys
+	--pass-textier-keys \
+	|| true
+
+pkill -USR2 dunst || true
