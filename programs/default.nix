@@ -20,6 +20,7 @@
     ./git.nix
     ./hexchat
     ./htop.nix
+    ./httpie.nix
     ./i3
     ./insync.nix
     ./jq.nix
