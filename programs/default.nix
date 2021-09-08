@@ -15,6 +15,7 @@
     ./ffmpeg.nix
     ./fish
     ./flameshot.nix
+    ./frescobaldi.nix
     ./fzf.nix
     ./gammastep.nix
     ./git.nix
