@@ -73,6 +73,30 @@
         Download details for the Talon beta.
       '';
     };
+    rcu = lib.mkOption {
+      type = with lib.types; nullOr (submodule {
+        options = {
+          url = lib.mkOption {
+            type = str;
+            description = ''
+              URL which RCU can be downloaded from.
+            '';
+          };
+          sha256 = lib.mkOption {
+            type = str;
+            description = ''
+              SHA256 hash of RCU.
+            '';
+          };
+          version = lib.mkOption {
+            type = str;
+            description = ''
+              The version number of RCU.
+            '';
+          };
+        };
+      });
+    };
     irc = lib.mkOption {
       default = {};
       description = ''

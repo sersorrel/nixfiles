@@ -29,4 +29,9 @@
       srcs = (import ./secrets/secrets.nix { inherit (super) lib; }).secrets.talon-beta;
     };
   })
+  (self: super: {
+    rcu = super.callPackage ./programs/rcu/rcu.nix {
+      srcs = (import ./secrets/secrets.nix { inherit (super) lib; }).secrets.rcu;
+    };
+  })
 ]

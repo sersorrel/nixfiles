@@ -34,6 +34,7 @@
     ./nemo.nix
     ./nix-script.nix
     ./playerctl.nix
+    ./rcu
     ./ripgrep.nix
     ./rustup.nix
     ./signal.nix
