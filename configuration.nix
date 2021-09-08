@@ -168,7 +168,7 @@ in
 
   # Configure keymap in X11.
   services.xserver.layout = "gb-qw0rty";
-  services.xserver.xkbOptions = "compose:caps,altwin:swap_lalt_lwin";
+  services.xserver.xkbOptions = "caps:super,altwin:swap_lalt_lwin";
   services.xserver.extraLayouts.gb-qw0rty = {
     description = "English (UK) (qw0rty)";
     languages = [ "eng" ];
