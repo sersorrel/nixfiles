@@ -76,4 +76,7 @@ in
   ];
   xdg.configFile."hexchat/servlist.conf".text = concatStringsSep "\n\n" (["v=2.14.3"] ++ mapAttrsToList mkServlistStanza config.secrets.irc);
   xdg.configFile."hexchat/hexchat.conf".source = ./hexchat.conf;
+  # Stop hexchat.conf being overwritten by HexChat.
+  # https://github.com/hexchat/hexchat/blob/90c91d6c9aa048eff8f8f8f888d37a21fd714522/src/common/cfgfiles.c#L1013
+  xdg.configFile."hexchat/hexchat.conf.new".text = "";
 }
