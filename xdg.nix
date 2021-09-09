@@ -18,6 +18,7 @@
     };
     associations.removed = {};
     defaultApplications = {
+      "audio/flac" = "org.gnome.Totem.desktop";
       "audio/mpeg" = "org.gnome.Totem.desktop";
       "image/jpeg" = "org.gnome.eog.desktop";
       "image/png" = "org.gnome.eog.desktop";
