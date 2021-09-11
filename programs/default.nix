@@ -8,6 +8,7 @@
     ./dconf-editor.nix
     ./dircolors.nix
     ./discord.nix
+    ./display-volume.nix
     ./dunst.nix
     ./evince.nix
     ./exa.nix

@@ -34,4 +34,23 @@
       srcs = (import ./secrets/secrets.nix { inherit (super) lib; }).secrets.rcu;
     };
   })
+  (self: super: {
+    display-volume = super.rustPlatform.buildRustPackage {
+      pname = "display-volume";
+      version = "0.1.0";
+      src = super.fetchFromGitHub {
+        owner = "sersorrel";
+        repo = "display-volume";
+        rev = "318a70933869d3a5c50bce06bda2887c3c287e84";
+        sha256 = "1gqyxggxwk87ddcsisb4s1rw8f9z8lyxg95py0nn77q18w6f6srg";
+      };
+      cargoSha256 = "1a8rm1hnw7gmbvaps9p0kcr3v0vm7a0ax31qcfsghhl3nckr4nkm";
+      nativeBuildInputs = [
+        super.autoPatchelfHook
+      ];
+      buildInputs = [
+        super.libpulseaudio
+      ];
+    };
+  })
 ]
