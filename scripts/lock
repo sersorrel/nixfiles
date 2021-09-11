@@ -82,6 +82,15 @@ i3lock-color \
 	--pass-media-keys \
 	--pass-screen-keys \
 	--pass-textier-keys \
-	|| true
+	&
+
+if [ $# -gt 0 ]; then
+	sleep 1
+	if jobs %% >/dev/null; then # if i3lock is still running
+		"$@" || true
+	fi
+fi
+
+wait %% || true
 
 pkill -USR2 dunst || true

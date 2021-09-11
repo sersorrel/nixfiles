@@ -289,9 +289,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # lock the screen
 bindsym $mod+Shift+f exec lock
 # lock the screen and force it to turn off now
-bindsym $mod+Shift+p exec lock && sleep 1 && xset dpms force off
+bindsym $mod+Shift+p exec lock xset dpms force off
 # lock the screen and suspend
-bindsym $mod+Shift+BackSpace exec lock && sleep 1 && systemctl suspend
+bindsym $mod+Shift+BackSpace exec lock systemctl suspend
 
 set $mode_shutdown "(l)ogout, (s)hutdown, (r)eboot"
 mode $mode_shutdown {
