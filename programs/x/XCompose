@@ -29,6 +29,8 @@ include "%L"
 <Multi_key> <numbersign> <F> : "𝆑" U1D191 # MUSICAL SYMBOL FORTE
 <Multi_key> <numbersign> <p> : "𝆏" U1D18F # MUSICAL SYMBOL PIANO
 <Multi_key> <numbersign> <m> : "𝆐" U1D190 # MUSICAL SYMBOL MEZZO
+<Multi_key> <numbersign> <n> : "♮" U266E # MUSIC NATURAL SIGN
+# sharp is on <multi>##, flat is on <multi>#b
 
 ## Maths
 <Multi_key> <3> <equal> : "≡" U2261 # IDENTICAL TO
