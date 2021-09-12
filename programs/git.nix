@@ -69,7 +69,7 @@
     ];
     extraConfig = {
       core = {
-        editor = "vim";
+        editor = "nvim";
         whitespace = "blank-at-eol,blank-at-eof,space-before-tab";
         pager = "some";
       };

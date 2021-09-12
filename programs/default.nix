@@ -33,6 +33,7 @@
     ./kitty
     ./less.nix
     ./nemo.nix
+    ./neovim
     ./nix-script.nix
     ./playerctl.nix
     ./rcu
