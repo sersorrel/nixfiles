@@ -104,8 +104,8 @@
         cd ~/.rn/$filename
       '';
       v = {
-        wraps = "gvim";
-        body = "gvim $argv";
+        wraps = "nvim";
+        body = "nvim $argv";
       };
       whenis = "date -d @$argv[1]";
       yeet = ''
