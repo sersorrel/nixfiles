@@ -32,6 +32,7 @@
     ./keychain.nix
     ./kitty
     ./less.nix
+    ./lutris.nix
     ./nemo.nix
     ./neovim
     ./nix-script.nix
