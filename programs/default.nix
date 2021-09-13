@@ -53,5 +53,6 @@
     ./x
     ./xclip.nix
     ./youtube-dl.nix
+    ./zenity.nix
   ];
 }

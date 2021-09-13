@@ -293,6 +293,8 @@ bindsym $mod+Shift+p exec lock xset dpms force off
 # lock the screen and suspend
 bindsym $mod+Shift+BackSpace exec lock systemctl suspend
 
+bindsym $mod+r exec --no-startup-id remind $(zenity --entry --text "Reminder (time message):" --title "New reminder" --width 400)
+
 set $mode_shutdown "(l)ogout, (s)hutdown, (r)eboot"
 mode $mode_shutdown {
         bindsym l exit
