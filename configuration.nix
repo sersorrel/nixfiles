@@ -107,6 +107,9 @@ in
   # Enable Bluetooth support.
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  # Disable HSP/HFP entirely.
+  # https://askubuntu.com/a/1250501/478436
+  hardware.bluetooth.settings.General.Disable = "Headset";
 
   # Enable UPower, mostly so that applications can get the battery level.
   services.upower.enable = true;
@@ -188,6 +191,15 @@ in
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.extraConfig = ''
+    .ifexists module-bluetooth-policy.so
+    # it was already loaded by the default config, so unload it first
+    unload-module module-bluetooth-policy
+    # then reload it but turn off automatically switching to HSP/HFP if something starts recording with media.role=phone
+    # https://askubuntu.com/a/1119934/478436
+    load-module module-bluetooth-policy auto_switch=false
+    .endif
+  '';
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
