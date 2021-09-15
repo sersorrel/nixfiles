@@ -33,6 +33,7 @@
     ./kitty
     ./less.nix
     ./lutris.nix
+    ./lyx.nix
     ./nemo.nix
     ./neovim
     ./nix-script.nix
