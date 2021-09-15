@@ -9,7 +9,7 @@ in
 {
   options = {
     programs.i3.extraConfig = lib.mkOption {
-      type = with lib.types; listOf string;
+      type = with lib.types; listOf str;
       default = [];
       description = ''
         Additional lines of configuration to append to the i3 config file.

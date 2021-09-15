@@ -7,14 +7,14 @@
 
   options.secrets = {
     name = lib.mkOption {
-      type = with lib.types; nullOr string;
+      type = with lib.types; nullOr str;
       default = null;
       description = ''
         Your full name.
       '';
     };
     email = lib.mkOption {
-      type = with lib.types; nullOr string;
+      type = with lib.types; nullOr str;
       default = null;
       description = ''
         Your email address.
