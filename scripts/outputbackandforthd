@@ -1,0 +1,39 @@
+#!/usr/bin/env nix-script-bash
+# vim: set ft=bash:
+
+set -o pipefail
+
+dir="/var/run/user/$(id -u)/i3outputbackandforthd"
+
+if [ "$1" = "-v" ] || [ "$1" = "--verbose" ]; then
+	dbg() {
+		echo "$@" >&2
+	}
+	dbg "Logging verbosely."
+else
+	dbg() { :; }
+fi
+
+rm -rf "$dir"
+mkdir -p "$dir"
+
+while read -r event; do
+	# We're only interested in changes of focus.
+	if [ "$(jq -r '.change' <<< "$event")" != "focus" ]; then
+		continue
+	fi
+	old_output=$(jq -r '.old.output' <<< "$event")
+	current_output=$(jq -r '.current.output' <<< "$event")
+	dbg "Received an event."
+	if [ "$old_output" != "$current_output" ]; then
+		if [ "$old_output" != "null" ]; then
+			dbg "Changed output. (From $old_output to $current_output)"
+			printf '%s\n' "$old_output" > "$dir/old"
+		else
+			dbg "Got 'null' as old output, ignoring."
+		fi
+	else
+		dbg "Didn't change output. (Stayed on $current_output)"
+	fi
+	dbg
+done < <(i3-msg -t subscribe -m '["workspace"]')

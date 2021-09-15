@@ -278,6 +278,15 @@ bindsym $mod+Shift+bracketright move container to workspace next; workspace next
 
 bindsym $mod+x exec --no-startup-id exec i3-workspace-swap
 
+# switch between workspaces on the current output
+bindsym $mod+Tab exec backandforth
+bindsym $mod+Shift+Tab exec i3-msg "move container to workspace $(backandforth -n)" && backandforth
+# switch between outputs
+bindsym Mod1+Tab exec outputbackandforth
+bindsym Mod1+Shift+Tab exec i3-msg "move container to output $(outputbackandforth -n)" && outputbackandforth
+# switch between containers
+bindsym $textier+r exec containerbackandforth
+
 bindsym $mod+o scratchpad show
 
 # reload the configuration file

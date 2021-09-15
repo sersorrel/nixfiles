@@ -1,0 +1,35 @@
+#!/usr/bin/env nix-script-bash
+#!runtimeInputs moreutils
+# vim: set ft=bash:
+
+set -o pipefail
+
+dir="/var/run/user/$(id -u)/i3containerbackandforthd"
+
+if [ "$1" = "-v" ] || [ "$1" = "--verbose" ]; then
+	dbg() {
+		echo "$@" >&2
+	}
+	dbg "Logging verbosely."
+else
+	dbg() { :; }
+fi
+
+rm -rf "$dir"
+mkdir -p "$dir"
+
+while read -r event; do
+	# We're only interested in changes of focus.
+	if [ "$(jq -r '.change' <<< "$event")" != "focus" ]; then
+		continue
+	fi
+	new_window_id=$(jq -r '.container.id' <<< "$event")
+	dbg "Received an event."
+	if [ "$new_window_id" != "null" ]; then
+		dbg "Changed window. (to $new_window_id)"
+		{ printf '%s\n' "$new_window_id"; test -e "$dir/history" && head -n 10 "$dir/history"; } | sponge "$dir/history"
+	else
+		dbg "Got 'null' as window id, ignoring."
+	fi
+	dbg
+done < <(i3-msg -t subscribe -m '["window"]')

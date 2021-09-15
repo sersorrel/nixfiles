@@ -24,6 +24,42 @@ in
     gtk.gtk3.extraConfig = {
       gtk-decoration-layout = "icon:menu";
     };
+    systemd.user.services.backandforth = {
+      Unit = {
+        Description = "i3wm workspace switching daemon (current output)";
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = config.home.homeDirectory + "/.local/bin/backandforthd";
+      };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
+    systemd.user.services.outputbackandforth = {
+      Unit = {
+        Description = "i3wm workspace switching daemon (between outputs)";
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = config.home.homeDirectory + "/.local/bin/outputbackandforthd";
+      };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
+    systemd.user.services.containerbackandforth = {
+      Unit = {
+        Description = "i3wm container switching daemon";
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = config.home.homeDirectory + "/.local/bin/containerbackandforthd";
+      };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
     xdg.configFile."i3/config".text = (builtins.readFile ./config) + "\n" + lib.strings.concatStringsSep "\n" config.programs.i3.extraConfig;
     xdg.configFile."rofi/config.rasi".text = ''
       configuration {
