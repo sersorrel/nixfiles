@@ -209,5 +209,12 @@
         };
       });
     };
+    ssh = lib.mkOption {
+      type = with lib.types; nullOr str;
+      default = null;
+      description = ''
+        SSH client configuration.
+      '';
+    };
   };
 }

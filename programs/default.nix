@@ -45,6 +45,7 @@
     ./signal.nix
     ./slack.nix
     ./some.nix
+    ./ssh.nix
     ./starship.nix
     ./steam.nix
     ./talon
