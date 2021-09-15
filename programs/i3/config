@@ -103,6 +103,7 @@ bindsym Shift+XF86MonBrightnessDown exec --no-startup-id lightctl dec 1; exec --
 bindsym $mod+d exec rofi -show run -display-window '' -display-run '' -display-ssh '' -display-drun ''
 bindsym $mod+Shift+d exec rofi -show drun -display-window '' -display-run '' -display-ssh '' -display-drun ''
 bindsym $mod+grave exec rofi -show window -display-window '' -display-run '' -display-ssh '' -display-drun ''
+bindsym $mod+Menu exec bash -c 'set -o pipefail && out=$(2>&1 eval $(grep -v "^#" ~/.local/bin/commands.list | rofi -dmenu -i -p "" | cut -f2-)) || notify-send "Task failed" "$out"'
 
 bindsym --release Print exec --no-startup-id screenshot ~/Pictures/Screenshots/"Screenshot from $(date '+%Y-%m-%d %H-%M-%S').png"
 bindsym --release Ctrl+Print exec --no-startup-id screenshot | xclip -selection clipboard -t image/png

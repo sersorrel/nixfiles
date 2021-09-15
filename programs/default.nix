@@ -36,6 +36,7 @@
     ./nemo.nix
     ./neovim
     ./nix-script.nix
+    ./notify-send.nix
     ./playerctl.nix
     ./rcu
     ./ripgrep.nix
