@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   unstable = import <nixos-unstable> {};
@@ -18,6 +18,9 @@ in
   };
 
   config = {
+    home.packages = with pkgs; [
+      lm_sensors # for i3status-rust
+    ];
     gtk.gtk2.extraConfig = ''
       gtk-decoration-layout = "icon:menu"
     '';
@@ -85,7 +88,7 @@ in
     '';
     programs.i3status-rust = {
       enable = true;
-      package = unstable.i3status-rust;
+      package = unstable.i3status-rust; # we need at least version 0.20.2 for the formatter changes
       bars.default = {
         settings = {
           theme = {
