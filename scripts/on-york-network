@@ -1,0 +1,10 @@
+#!/usr/bin/env nix-script-bash
+#!runtimeInputs curl jq
+# vim: set ft=bash:
+
+ip=$(curl -s https://httpbin.org/ip | jq -r .origin)
+
+case $ip in
+        144.32.*) exit 0;; # yes, we're on the york network
+        *) exit 1;; # no, we're not on the york network
+esac
