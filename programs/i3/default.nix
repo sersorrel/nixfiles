@@ -20,6 +20,7 @@ in
   config = {
     home.packages = with pkgs; [
       lm_sensors # for i3status-rust
+      xdotool # for i3 itself (flameshot, https://github.com/flameshot-org/flameshot/issues/784)
     ];
     gtk.gtk2.extraConfig = ''
       gtk-decoration-layout = "icon:menu"
