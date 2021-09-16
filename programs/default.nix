@@ -4,6 +4,7 @@
     ./bash.nix
     ./bat.nix
     ./brightnessctl.nix
+    ./calibre.nix
     ./colordiff.nix
     ./dconf-editor.nix
     ./dircolors.nix
