@@ -67,6 +67,9 @@ let
 in
 {
   home.sessionVariables.EDITOR = "nvim";
+  xdg.configFile."nvim/after/syntax/nix.vim".text = ''
+    syntax match nixFunctionCall /\v((lib|pkgs|builtins)\.)+/ conceal cchar=.
+  '';
   programs.neovim = {
     enable = true;
     extraConfig = builtins.readFile ./init.vim;
