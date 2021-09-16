@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 let
+  unstable = import <nixos-unstable> {};
   vim-angry = pkgs.vimUtils.buildVimPlugin {
     name = "vim-angry";
     src = pkgs.fetchFromGitHub {
@@ -72,6 +73,7 @@ in
   '';
   programs.neovim = {
     enable = true;
+    package = assert builtins.compareVersions pkgs.neovim-unwrapped.version "0.5" == -1; unstable.neovim-unwrapped; # need neovim 0.5 for LSP support
     extraConfig = builtins.readFile ./init.vim;
     plugins = with pkgs.vimPlugins; [
       # Tim Pope
@@ -237,6 +239,21 @@ in
           let g:rooter_silent_chdir = 1
         '';
       }
+      # LSP support
+      {
+        # using unstable.vimPlugins.nvim-lspconfig silently fails
+        # https://github.com/NixOS/nixpkgs/pull/136429
+        # https://github.com/NixOS/nixpkgs/issues/138084
+        plugin = nvim-lspconfig;
+        config = ''
+          lua <<EOF
+          require'lspconfig'.rnix.setup{}
+          EOF
+        '';
+      }
     ];
   };
+  home.packages = with pkgs; [
+    rnix-lsp
+  ];
 }
