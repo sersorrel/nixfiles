@@ -11,7 +11,15 @@
     1000
     --max-columns-preview
     --multiline-dotall
+    --ignore-file
+    ${config.xdg.configHome}/ripgrep/ignore
     --type-add
     cfg:*.cfg
+  '';
+  xdg.configFile."ripgrep/ignore".text = ''
+    Cargo.lock
+    Gemfile.lock
+    package-lock.json
+    poetry.lock
   '';
 }
