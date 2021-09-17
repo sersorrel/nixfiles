@@ -312,3 +312,77 @@ if has('gui_running')
   endfunction
   noremap <2-LeftMouse> <2-LeftMouse>:<c-u>let @/="<C-R>=<SID>makepattern(@*)<CR>"<CR>:set hls<CR>
 endif
+
+" Show completion popup even if there's only one option, and don't select anything by default
+set completeopt=menuone,noselect
+
+" LSP (and similar IDE-like things) configuration
+lua <<EOF
+-- set up rust-analyzer via rust-tools.nvim
+-- https://sharksforarms.dev/posts/neovim-rust/
+require'rust-tools'.setup{
+  tools = { -- rust-tools options
+    hover_actions = {
+      auto_focus = true,
+      },
+    },
+  server = { -- nvim-lspconfig options
+    settings = {
+      -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          command = "clippy",
+          },
+        },
+      },
+    },
+  }
+
+-- set up cmp, see https://github.com/hrsh7th/nvim-cmp#basic-configuration
+local cmp = require'cmp'
+cmp.setup{
+  mapping = {
+    ["<c-p>"] = cmp.mapping.select_prev_item(),
+    ["<c-n>"] = cmp.mapping.select_next_item(),
+    ["<s-tab>"] = cmp.mapping.select_prev_item(),
+    ["<tab>"] = cmp.mapping.select_next_item(),
+    ["<c-d>"] = cmp.mapping.scroll_docs(-2),
+    ["<c-f>"] = cmp.mapping.scroll_docs(2),
+    ["<c-space>"] = cmp.mapping.complete(),
+    ["<c-e>"] = cmp.mapping.close(),
+    ["<CR>"] = cmp.mapping.confirm{
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+      },
+    },
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "path" },
+    { name = "buffer", max_item_count = 10 },
+    },
+  formatting = {
+    deprecated = true,
+    },
+  }
+EOF
+
+function! s:on_goto()
+  if (index(['vim', 'help'], &filetype) >= 0)
+    execute 'tag '.expand('<cword>')
+  else
+    lua vim.lsp.buf.definition()
+  end
+endfunction
+nnoremap <silent> <c-]> <cmd>call <SID>on_goto()<CR>
+function! s:on_hover()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    lua vim.lsp.buf.hover()
+  endif
+endfunction
+nnoremap <silent> K <cmd>call <SID>on_hover()<CR>
+nnoremap <silent> ga <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> ? <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>

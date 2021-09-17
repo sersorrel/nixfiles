@@ -2,6 +2,51 @@
 
 let
   unstable = import <nixos-unstable> {};
+  cmp-buffer = pkgs.vimUtils.buildVimPlugin {
+    name = "cmp-buffer";
+    src = pkgs.fetchFromGitHub {
+      owner = "hrsh7th";
+      repo = "cmp-buffer";
+      rev = "5dde5430757696be4169ad409210cf5088554ed6";
+      sha256 = "0fdywbv4b0z1kjnkx9vxzvc4cvjyp9mnyv4xi14zndwjgf1gmcwl";
+    };
+  };
+  cmp-nvim-lsp = pkgs.vimUtils.buildVimPlugin {
+    name = "cmp-nvim-lsp";
+    src = pkgs.fetchFromGitHub {
+      owner = "hrsh7th";
+      repo = "cmp-nvim-lsp";
+      rev = "f6f471898bc4b45eacd36eef9887847b73130e0e";
+      sha256 = "1asr32w5q618pqggq9jwrbqs4kjp3ssbw5pca5wc7j2496vm2lhg";
+    };
+  };
+  cmp-path = pkgs.vimUtils.buildVimPlugin {
+    name = "cmp-path";
+    src = pkgs.fetchFromGitHub {
+      owner = "hrsh7th";
+      repo = "cmp-path";
+      rev = "0016221b6143fd6bf308667c249e9dbdee835ae2";
+      sha256 = "03k43xavw17bbjzmkknp9z4m8jv9hn6wyvjwaj1gpyz0n21kn5bb";
+    };
+  };
+  nvim-cmp = pkgs.vimUtils.buildVimPluginFrom2Nix { # this just avoids running the makefile
+    name = "nvim-cmp";
+    src = pkgs.fetchFromGitHub {
+      owner = "hrsh7th";
+      repo = "nvim-cmp";
+      rev = "620eea94d3259d744a8a2341fcae0f7bc966300a";
+      sha256 = "0p63ia3x0f8dj1lzwip51jiz49s451mxcpjaicfbrlj41fc9cz3v";
+    };
+  };
+  rust-tools-nvim = assert builtins.compareVersions pkgs.vimPlugins.rust-tools-nvim.version "2021-09-16" == -1; pkgs.vimUtils.buildVimPlugin { # https://github.com/simrat39/rust-tools.nvim/issues/61
+    name = "rust-tools-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "simrat39";
+      repo = "rust-tools.nvim";
+      rev = "2ebbd7483247f730d57182b090f78aee466c9d54";
+      sha256 = "06kixggr30vpa4iv5rrs5awl7p3z7l2vqkrwz434i39d5gm7wrir";
+    };
+  };
   vim-angry = pkgs.vimUtils.buildVimPlugin {
     name = "vim-angry";
     src = pkgs.fetchFromGitHub {
@@ -251,9 +296,15 @@ in
           EOF
         '';
       }
+      cmp-buffer
+      cmp-nvim-lsp
+      cmp-path
+      nvim-cmp
+      rust-tools-nvim
     ];
   };
   home.packages = with pkgs; [
     rnix-lsp
+    (assert builtins.compareVersions rust-analyzer.version "2021-07-19" == -1; unstable.rust-analyzer) # https://github.com/rust-analyzer/rust-analyzer/issues/8925
   ];
 }
