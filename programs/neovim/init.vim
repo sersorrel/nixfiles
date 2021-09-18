@@ -357,6 +357,7 @@ cmp.setup{
     },
   sources = {
     { name = "nvim_lsp" },
+    { name = "crates" },
     { name = "path" },
     { name = "buffer", max_item_count = 10 },
     },
@@ -377,6 +378,10 @@ nnoremap <silent> <c-]> <cmd>call <SID>on_goto()<CR>
 function! s:on_hover()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (index(['man'], &filetype) >= 0)
+    execute 'Man '.expand('<cword>')
+  elseif (expand('%:t') == 'Cargo.toml')
+    lua require'crates'.show_versions_popup()
   else
     lua vim.lsp.buf.hover()
   endif

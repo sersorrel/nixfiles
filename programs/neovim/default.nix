@@ -29,6 +29,15 @@ let
       sha256 = "03k43xavw17bbjzmkknp9z4m8jv9hn6wyvjwaj1gpyz0n21kn5bb";
     };
   };
+  crates-nvim = assert !(pkgs ? crates-nvim); pkgs.vimUtils.buildVimPlugin {
+    name = "crates.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "Saecki";
+      repo = "crates.nvim";
+      rev = "d15c2f28d10ed5f299933e812598a1206e4fc4ef";
+      sha256 = "1y3qisxd85yfqrn9jdb4g1pf97p62lyp6253g9p127zcdkb3w4g0";
+    };
+  };
   nvim-cmp = pkgs.vimUtils.buildVimPluginFrom2Nix { # this just avoids running the makefile
     name = "nvim-cmp";
     src = pkgs.fetchFromGitHub {
@@ -299,7 +308,14 @@ in
       cmp-buffer
       cmp-nvim-lsp
       cmp-path
+      {
+        plugin = crates-nvim;
+        config = ''
+          lua require'crates'.setup{popup={autofocus=true}}
+        '';
+      }
       nvim-cmp
+      plenary-nvim
       rust-tools-nvim
     ];
   };
