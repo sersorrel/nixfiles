@@ -43,8 +43,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "simrat39";
       repo = "rust-tools.nvim";
-      rev = "2ebbd7483247f730d57182b090f78aee466c9d54";
-      sha256 = "06kixggr30vpa4iv5rrs5awl7p3z7l2vqkrwz434i39d5gm7wrir";
+      rev = "83bf0cabe040a6e02b59296622c838831a2b5c4f";
+      sha256 = "0d2gl768rgd5l1wh9sq2z24rdmg5g27ib6fjfdcvxdlc2s5g333l";
     };
   };
   vim-angry = pkgs.vimUtils.buildVimPlugin {
