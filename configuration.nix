@@ -284,7 +284,12 @@ in
     graphviz
     displaycal
     gcc
+    man-pages
+    man-pages-posix
   ];
+
+  # Install more manual pages.
+  documentation.dev.enable = true;
 
   # Make Steam Work™.
   programs.steam.enable = true;
