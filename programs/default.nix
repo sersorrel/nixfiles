@@ -16,6 +16,7 @@
     ./fd.nix
     ./ffmpeg.nix
     ./fish
+    ./flac.nix
     ./flameshot.nix
     ./frescobaldi.nix
     ./fzf.nix
