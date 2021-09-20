@@ -14,6 +14,7 @@
     ./dunst.nix
     ./evince.nix
     ./exa.nix
+    ./exiftool.nix
     ./fd.nix
     ./ffmpeg.nix
     ./fish
