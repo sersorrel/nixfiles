@@ -7,6 +7,7 @@
     ./calibre.nix
     ./colordiff.nix
     ./dconf-editor.nix
+    ./dig.nix
     ./dircolors.nix
     ./discord.nix
     ./display-volume.nix
