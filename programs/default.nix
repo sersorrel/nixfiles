@@ -56,6 +56,7 @@
     ./todoist.nix
     ./unicode.nix
     ./vim
+    ./whois.nix
     ./wine.nix
     ./x
     ./xclip.nix
