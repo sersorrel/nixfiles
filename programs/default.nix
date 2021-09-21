@@ -44,6 +44,7 @@
     ./nix-script.nix
     ./notify-send.nix
     ./playerctl.nix
+    ./pngcrush.nix
     ./rcu
     ./ripgrep.nix
     ./rustup.nix
