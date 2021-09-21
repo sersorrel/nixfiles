@@ -34,6 +34,7 @@
     ./kdenlive.nix
     ./keepassxc.nix
     ./keychain.nix
+    ./kid3.nix
     ./kitty
     ./less.nix
     ./lutris.nix
