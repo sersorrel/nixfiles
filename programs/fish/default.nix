@@ -1,6 +1,12 @@
 { lib, ... }:
 
 {
+  xdg.dataFile."applications/fish.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Name=fish
+    NoDisplay=true
+  '';
   programs.fish = {
     enable = true;
     functions = {
