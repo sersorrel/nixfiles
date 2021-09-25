@@ -47,6 +47,15 @@ let
       sha256 = "0p63ia3x0f8dj1lzwip51jiz49s451mxcpjaicfbrlj41fc9cz3v";
     };
   };
+  nvim-lint = assert !(pkgs ? nvim-lint); pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-lint";
+    src = pkgs.fetchFromGitHub {
+      owner = "mfussenegger";
+      repo = "nvim-lint";
+      rev = "cd3cef2fbdba36768736a3f927cfcab9873e8b85";
+      sha256 = "15w4bdqzz62cq56idwf0y191avk6zp8c09lhq3dm1w4v15rqsxqs";
+    };
+  };
   rust-tools-nvim = assert builtins.compareVersions pkgs.vimPlugins.rust-tools-nvim.version "2021-09-16" == -1; pkgs.vimUtils.buildVimPlugin { # https://github.com/simrat39/rust-tools.nvim/issues/61
     name = "rust-tools-nvim";
     src = pkgs.fetchFromGitHub {
@@ -317,6 +326,22 @@ in
       nvim-cmp
       plenary-nvim
       rust-tools-nvim
+      # Linting
+      {
+        plugin = nvim-lint;
+        config = ''
+          lua <<EOF
+          require'lint'.linters_by_ft = {
+            sh = {'shellcheck',},
+            bash = {'shellcheck',},
+          }
+          EOF
+          au BufWritePost,CursorHold,CursorHoldI <buffer> lua require'lint'.try_lint()
+        '';
+      }
+    ];
+    extraPackages = with pkgs; [
+      shellcheck
     ];
   };
   home.packages = with pkgs; [
