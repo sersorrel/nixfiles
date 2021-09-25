@@ -1,11 +1,13 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 let
+  unstable = import <nixos-unstable> { overlays = import ../overlays.nix; };
   esc = builtins.fromJSON ''"\u001B"'';
 in
 {
   programs.starship = {
     enable = true;
+    package = assert builtins.compareVersions pkgs.starship.version "0.58.0" == -1; unstable.starship; # $all deduplication, https://github.com/starship/starship/pull/3026
     settings = {
       battery = {
         disabled = true;
@@ -59,60 +61,8 @@ in
       };
       format = lib.concatStrings [
         "🦉 "
-        "$username"
-        "$hostname"
-        "$shlvl"
-        "$kubernetes"
-        "$directory"
-        "$vcsh"
-        "$git_branch"
-        "$git_commit"
-        "$git_state"
-        "$git_metrics"
-        "$git_status"
-        "$hg_branch"
-        "$docker_context"
-        "$package"
-        "$cmake"
-        "$dart"
-        "$deno"
-        "$dotnet"
-        "$elixir"
-        "$elm"
-        "$erlang"
-        "$golang"
-        "$helm"
-        "$java"
-        "$julia"
-        "$kotlin"
-        "$nim"
-        "$nodejs"
-        "$ocaml"
-        "$perl"
-        "$php"
-        "$purescript"
-        "$python"
-        "$red"
-        "$ruby"
-        "$rust"
-        "$scala"
-        "$swift"
-        "$terraform"
-        "$vlang"
-        "$vagrant"
-        "$zig"
-        "$nix_shell"
-        "$conda"
-        "$memory_usage"
-        "$aws"
-        "$gcloud"
-        "$openstack"
-        "$env_var"
-        "$crystal"
-        "$custom"
-        "$cmd_duration"
+        "$all" # automatically excludes modules we position explicitly
         ''${esc}\[48;2;242;229;188m${esc}\[K$line_break${esc}\[49m''
-        "$lua"
         "$jobs"
         "$battery"
         "$time"
