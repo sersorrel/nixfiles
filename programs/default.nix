@@ -17,6 +17,7 @@
     ./exiftool.nix
     ./fd.nix
     ./ffmpeg.nix
+    ./file2img
     ./fish
     ./flac.nix
     ./flameshot.nix

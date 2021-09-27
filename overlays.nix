@@ -63,4 +63,7 @@
       };
     });
   })
+  (self: super: {
+    file2img = super.callPackage ./programs/file2img/file2img.nix {};
+  })
 ]
