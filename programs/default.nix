@@ -66,6 +66,7 @@
     ./xclip.nix
     ./youtube-dl.nix
     ./zenity.nix
+    ./zoom.nix
     ./zulip.nix
   ];
 }

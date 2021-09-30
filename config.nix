@@ -15,6 +15,7 @@ in
     "talon"
     "talon-beta"
     "todoist-electron"
+    "zoom"
   ];
   packageOverrides = pkgs: {
     vim_configured = pkgs.vim_configurable.customize vim_config;
