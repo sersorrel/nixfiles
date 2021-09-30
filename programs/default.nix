@@ -38,6 +38,7 @@
     ./kid3.nix
     ./kitty
     ./less.nix
+    ./libreoffice.nix
     ./lutris.nix
     ./lyx.nix
     ./nemo.nix
