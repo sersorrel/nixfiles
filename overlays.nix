@@ -84,4 +84,11 @@
       rtmpdump = null;
     };
   })
+  (self: super: {
+    rhythmbox = super.rhythmbox.overrideAttrs (old: {
+      patches = (old.patches or []) ++ [
+        ./patches/rhythmbox-0001-no-pause-notification.patch
+      ];
+    });
+  })
 ]

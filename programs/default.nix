@@ -48,6 +48,7 @@
     ./playerctl.nix
     ./pngcrush.nix
     ./rcu
+    ./rhythmbox.nix
     ./ripgrep.nix
     ./rustup.nix
     ./signal.nix
