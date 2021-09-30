@@ -66,4 +66,9 @@
   (self: super: {
     file2img = super.callPackage ./programs/file2img/file2img.nix {};
   })
+  (self: super: { # https://trac.ffmpeg.org/ticket/7547
+    ffmpeg-full = super.ffmpeg-full.override {
+      rtmpdump = null;
+    };
+  })
 ]
