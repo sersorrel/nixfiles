@@ -50,6 +50,17 @@ in
         });
       });
     })
+    (self: super: {
+      # https://github.com/NixOS/nixpkgs/pull/127289
+      # specifically: "Support OSC 8 hyperlinks when -R is in effect."
+      less = super.less.overrideAttrs (old: rec {
+        version = "581.2";
+        src = pkgs.fetchurl {
+          url = "https://www.greenwoodsoftware.com/less/less-${version}.tar.gz";
+          sha256 = "0fyqslvrasv19qjvqrwfwz2n7mnm93y61x9bcx09ga90mxyb8d6f";
+        };
+      });
+    })
   ];
 
   # Override various parts of the detected hardware configuration.
