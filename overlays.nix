@@ -24,6 +24,19 @@
     };
   })
   (self: super: {
+    uoyweek = super.rustPlatform.buildRustPackage {
+      pname = "uoyweek";
+      version = "0.1.0";
+      src = super.fetchFromGitHub {
+        owner = "sersorrel";
+        repo = "uoyweek.rs";
+        rev = "d32e4096dee51641270cb4b624d7b0727f101f42";
+        sha256 = "17a2173myj6fxmgyaly6nz905b94vw6zr8qm5v2ig7yrxlqd9nnk";
+      };
+      cargoSha256 = "1xfgszxbj1ji0wpz01n9hhwnba7kxbbqk53r0sgxasxbzfmmknw5";
+    };
+  })
+  (self: super: {
     talon = super.callPackage ./programs/talon/talon.nix {};
     talon-beta = super.callPackage ./programs/talon/talon-beta.nix {
       srcs = (import ./secrets/secrets.nix { inherit (super) lib; }).secrets.talon-beta;

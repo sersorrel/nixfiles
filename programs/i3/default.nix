@@ -5,6 +5,7 @@ let
   fa-bluetooth-b = builtins.fromJSON ''"\uF294"'';
   fa-microphone-slash = builtins.fromJSON ''"\uF131"'';
   fa-tv = builtins.fromJSON ''"\uF26C"'';
+  fa-university = builtins.fromJSON ''"\uF19C"'';
 in
 {
   options = {
@@ -20,6 +21,7 @@ in
   config = {
     home.packages = with pkgs; [
       lm_sensors # for i3status-rust
+      uoyweek # for i3status-rust
       xdotool # for i3 itself (flameshot, https://github.com/flameshot-org/flameshot/issues/784)
     ];
     gtk.gtk2.extraConfig = ''
@@ -202,6 +204,12 @@ in
             block = "uptime";
           }
           # TODO: next-lecture?
+          {
+            block = "custom";
+            command = ''printf '${fa-university} '; uoyweek'';
+            interval = 120;
+            shell = "sh";
+          }
           {
             block = "time";
             format = "%A %F %-I:%M %P";
