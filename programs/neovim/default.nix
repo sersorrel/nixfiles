@@ -38,6 +38,15 @@ let
       sha256 = "1y3qisxd85yfqrn9jdb4g1pf97p62lyp6253g9p127zcdkb3w4g0";
     };
   };
+  essence-vim = pkgs.vimUtils.buildVimPlugin {
+    name = "essence.vim";
+    src = pkgs.fetchFromGitHub {
+      owner = "Druid-of-Luhn";
+      repo = "essence.vim";
+      rev = "feb317f277b46409f2fb73601e3db813d8b34480";
+      sha256 = "0340zc8a6867xh57rv6pckpq91kfky7qixpi1q4y2ahhcnfwb63f";
+    };
+  };
   nvim-cmp = pkgs.vimUtils.buildVimPluginFrom2Nix { # this just avoids running the makefile
     name = "nvim-cmp";
     src = pkgs.fetchFromGitHub {
@@ -219,6 +228,7 @@ in
           set noshowmode
         '';
       }
+      essence-vim
       {
         plugin = vim-polyglot;
         config = ''
