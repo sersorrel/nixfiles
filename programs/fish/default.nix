@@ -113,6 +113,11 @@
         wraps = "nvim";
         body = "nvim $argv";
       };
+      venv = ''
+        set dir $argv[1]
+        test -z "$dir"; and set dir "venv"
+        source "./$dir/bin/activate.fish"
+      '';
       whenis = "date -d @$argv[1]";
       yeet = ''
         echo "really yeet "(pwd)"? (ctrl-c if not)"
