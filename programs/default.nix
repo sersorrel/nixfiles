@@ -25,6 +25,7 @@
     ./fzf.nix
     ./gammastep.nix
     ./git.nix
+    ./gpg.nix
     ./hexchat
     ./htop.nix
     ./httpie.nix
