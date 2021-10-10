@@ -136,6 +136,9 @@ in
   services.gnome.tracker.enable = true;
   services.gnome.tracker-miners.enable = true;
 
+  services.mullvad-vpn.enable = true;
+  networking.firewall.checkReversePath = "loose"; # https://github.com/NixOS/nixpkgs/pull/121906
+
   # Enable Samba, and allow SMBv1.
   services.samba.enable = true;
   services.samba.extraConfig = ''
@@ -306,6 +309,7 @@ in
     gcc
     man-pages
     man-pages-posix
+    mullvad-vpn
   ];
 
   # Install more manual pages.
