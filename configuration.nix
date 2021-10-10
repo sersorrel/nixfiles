@@ -132,6 +132,10 @@ in
   # Make nautilus/nemo happy.
   services.gvfs.enable = true;
 
+  # Let Gnome Tracker index files (required for e.g. Gnome Music to work).
+  services.gnome.tracker.enable = true;
+  services.gnome.tracker-miners.enable = true;
+
   # Enable Samba, and allow SMBv1.
   services.samba.enable = true;
   services.samba.extraConfig = ''
