@@ -160,6 +160,11 @@ in
   services.xserver.windowManager.i3.extraSessionCommands = "/run/current-system/systemd/bin/systemctl --user start i3-xdg-autostart.target";
   # Propagate variables like $DISPLAY to applications activated via D-Bus.
   services.xserver.updateDbusEnvironment = true;
+  # Set some reasonable defaults for key repeat rate, used if a keyboard is hotplugged after login.
+  # See programs/x/default.nix: `xset r rate 225 30`
+  # TODO: consider factoring these out to avoid duplication.
+  services.xserver.autoRepeatDelay = 225;
+  services.xserver.autoRepeatInterval = 1000 / 30;
 
   # Enable a compositor.
   services.picom = {
