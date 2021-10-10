@@ -30,6 +30,7 @@
     ./htop.nix
     ./httpie.nix
     ./i3
+    ./inkscape.nix
     ./insync.nix
     ./jq.nix
     ./kdeconnect.nix
