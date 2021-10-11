@@ -95,10 +95,10 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl --player playerctld play-pa
 bindsym XF86AudioNext exec --no-startup-id playerctl --player playerctld next
 
 # keyboard brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id lightctl inc 9; exec --no-startup-id sleep 0.05 && display-value $(lightctl get) brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id lightctl dec 9; exec --no-startup-id sleep 0.05 && display-value $(lightctl get) brightness
-bindsym Shift+XF86MonBrightnessUp exec --no-startup-id lightctl inc 1; exec --no-startup-id sleep 0.05 && display-value $(lightctl get) brightness
-bindsym Shift+XF86MonBrightnessDown exec --no-startup-id lightctl dec 1; exec --no-startup-id sleep 0.05 && display-value $(lightctl get) brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 9%+; exec --no-startup-id sleep 0.05 && notify-send -a brightness -h string:synchronous:brightness -h int:value:$(( $(brightnessctl get) * 100 / $(brightnessctl max) )) $(( $(brightnessctl get) * 100 / $(brightnessctl max) ))%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 9%-; exec --no-startup-id sleep 0.05 && notify-send -a brightness -h string:synchronous:brightness -h int:value:$(( $(brightnessctl get) * 100 / $(brightnessctl max) )) $(( $(brightnessctl get) * 100 / $(brightnessctl max) ))%
+bindsym Shift+XF86MonBrightnessUp exec --no-startup-id brightnessctl set 1%+; exec --no-startup-id sleep 0.05 && notify-send -a brightness -h string:synchronous:brightness -h int:value:$(( $(brightnessctl get) * 100 / $(brightnessctl max) )) $(( $(brightnessctl get) * 100 / $(brightnessctl max) ))%
+bindsym Shift+XF86MonBrightnessDown exec --no-startup-id brightnessctl set 1%-; exec --no-startup-id sleep 0.05 && notify-send -a brightness -h string:synchronous:brightness -h int:value:$(( $(brightnessctl get) * 100 / $(brightnessctl max) )) $(( $(brightnessctl get) * 100 / $(brightnessctl max) ))%
 
 bindsym $mod+d exec rofi -show run -display-window '' -display-run '' -display-ssh '' -display-drun ''
 bindsym $mod+Shift+d exec rofi -show drun -display-window '' -display-run '' -display-ssh '' -display-drun ''
