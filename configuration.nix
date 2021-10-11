@@ -226,6 +226,8 @@ in
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
+  # Make the trackpad scroll the correct way.
+  services.xserver.libinput.touchpad.naturalScrolling = true;
 
   # Support use of the Fish shell.
   programs.fish.enable = true;
