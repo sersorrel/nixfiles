@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
+  home.sessionVariables.NIX_SCRIPT_CACHE_PATH = "${config.xdg.cacheHome}/nix-script";
   home.packages = with pkgs; [
     (
       import (
