@@ -308,6 +308,7 @@ in
     pciutils
     nvtop
     nvidia-offload # defined above
+    gnome.cheese
     gnome.file-roller
     gnome.eog
     gnome.totem
