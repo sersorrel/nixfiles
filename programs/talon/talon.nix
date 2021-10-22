@@ -23,8 +23,8 @@
 let
   srcs = {
     url = "https://talonvoice.com/dl/latest/talon-linux.tar.xz";
-    sha256 = "003mx3499wj5jpwnyvzry73gdlr68n1yjc3ziz437687f7kiffda";
-    version = "public-latest";
+    sha256 = "1r32cqxhy0jr5n6g4xvxadqrp6fbw525vz7kiaa17vzfdbndzz2g";
+    version = "0.2.3";
   };
 in
 
