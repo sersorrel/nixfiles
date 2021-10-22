@@ -47,6 +47,7 @@
     ./neovim
     ./nix-script.nix
     ./notify-send.nix
+    ./obs.nix
     ./playerctl.nix
     ./pngcrush.nix
     ./rcu
