@@ -6,10 +6,10 @@
     (
       import (
         fetchFromGitHub {
-          owner = "sersorrel";
+          owner = "BrianHicks";
           repo = "nix-script";
-          rev = "bb82ca89f3169ec93bcd3d7dfd2ace3d76527abd";
-          sha256 = "1bz79ykfxqp1an5iyjnrcfyyp1gdrg9hg2zfb7kg77jhdpk6vr8j";
+          rev = "2ebbfa6bf727c6c4ccda522e643f689b9301ba2c"; # TODO: newer commits don't appear to work properly
+          sha256 = "1s2a1dx9v5ss1x0mjm821nzja8n1xpjac4801fvlraw6fyjif6zh";
         }
       ) {}
     )
