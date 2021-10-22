@@ -127,6 +127,9 @@ in
   # https://askubuntu.com/a/1250501/478436
   hardware.bluetooth.settings.General.Disable = "Headset";
 
+  # Use updated microcode when available.
+  hardware.cpu.intel.updateMicrocode = true;
+
   # Enable UPower, mostly so that applications can get the battery level.
   services.upower.enable = true;
 
