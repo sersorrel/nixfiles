@@ -286,9 +286,7 @@ in
       "steam-original"
       "steam-runtime"
       "brgenml1lpr"
-    ] || builtins.elem pkg.meta.license (with lib.licenses; [
-      virtualbox-puel
-    ]);
+    ];
     permittedInsecurePackages = [
       # Required for displaycal, https://github.com/NixOS/nixpkgs/issues/124590
       "python2.7-Pillow-6.2.2"
@@ -314,6 +312,7 @@ in
     gnome.totem
     gnome.gnome-system-monitor
     gnome.gnome-power-manager
+    gnome.gnome-boxes
     glimpse
     # dependency required for glimpse
     graphviz
@@ -338,9 +337,6 @@ in
   services.logind.lidSwitchDocked = "suspend";
 
   programs.adb.enable = true;
-
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
