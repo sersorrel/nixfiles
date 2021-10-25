@@ -91,7 +91,7 @@ in
           }
           {
             block = "disk_space";
-            format = builtins.fromJSON ''"\uF15B"'' + " {available:1; M}";
+            format = builtins.fromJSON ''"\uF312"'' + " {available:1; M}";
             path = "/nix";
             warning = 10;
             alert = 5;
