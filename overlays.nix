@@ -67,16 +67,6 @@
     };
   })
   (self: super: {
-    paper-gtk-theme = super.paper-gtk-theme.overrideAttrs (old: {
-      src = super.fetchFromGitHub {
-        owner = "hugogoncalves77";
-        repo = "paper-gtk-theme";
-        rev = "5a81820bdc5258855b7cd98377f377977a35cf41";
-        sha256 = "087nxz196wclrsdxq3mzqjg2p8sq9w92rj1brfhxspfkzy1y39i1";
-      };
-    });
-  })
-  (self: super: {
     file2img = super.callPackage ./programs/file2img/file2img.nix {};
   })
   (self: super: { # https://trac.ffmpeg.org/ticket/7547
