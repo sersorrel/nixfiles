@@ -193,6 +193,9 @@ in
       "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'" # windows in unselected tabs
     ];
     settings.xinerama-shadow-crop = true;
+    # Fix flickering after DPMS off.
+    # https://github.com/yshui/picom/issues/268
+    settings.use-damage = false;
     # Avoid showing the background when switching workspace.
     # https://github.com/yshui/picom/issues/16#issuecomment-792739119
     fade = true;
