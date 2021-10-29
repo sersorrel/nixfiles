@@ -74,6 +74,7 @@
     ./zenity.nix
     ./zip.nix
     ./zoom.nix
+    ./zotero.nix
     ./zulip.nix
   ];
 }
