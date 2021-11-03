@@ -17,6 +17,10 @@
         wraps = "xclip";
         body = "xclip -sel clip $argv";
       };
+      diff = {
+        wraps = "diff";
+        body = "command diff -u"; # TODO: maybe use colordiff or kitty's diff here?
+      };
     } // lib.attrsets.genAttrs [ "ffmpeg" "ffplay" "ffprobe" ] (binary: {
       wraps = binary;
       body = "command ${binary} -hide_banner $argv";
