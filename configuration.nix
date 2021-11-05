@@ -309,6 +309,7 @@ in
     pciutils
     nvtop
     nvidia-offload # defined above
+    gnome.adwaita-icon-theme
     gnome.cheese
     gnome.file-roller
     gnome.eog
