@@ -328,6 +328,10 @@ mode $mode_rearrange {
         bindsym j move workspace to output down
         bindsym k move workspace to output up
         bindsym l move workspace to output right
+        bindsym Left move workspace to output left
+        bindsym Down move workspace to output down
+        bindsym Up move workspace to output up
+        bindsym Right move workspace to output right
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+Shift+x mode "default"
