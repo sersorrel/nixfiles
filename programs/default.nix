@@ -30,6 +30,7 @@
     ./hexchat
     ./htop.nix
     ./httpie.nix
+    ./hushboard.nix
     ./i3
     ./inkscape.nix
     ./insync.nix
