@@ -19,7 +19,7 @@
       };
       diff = {
         wraps = "diff";
-        body = "command diff -u"; # TODO: maybe use colordiff or kitty's diff here?
+        body = "command diff -u $argv"; # TODO: maybe use colordiff or kitty's diff here?
       };
     } // lib.attrsets.genAttrs [ "ffmpeg" "ffplay" "ffprobe" ] (binary: {
       wraps = binary;
