@@ -10,6 +10,7 @@
     ./dconf-editor.nix
     ./dig.nix
     ./dircolors.nix
+    ./direnv.nix
     ./discord.nix
     ./display-volume.nix
     ./dunst.nix
@@ -43,6 +44,7 @@
     ./kitty
     ./less.nix
     ./libreoffice.nix
+    ./lorri.nix
     ./lutris.nix
     ./lyx.nix
     ./multimc.nix
