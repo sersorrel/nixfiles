@@ -90,14 +90,8 @@ in
   networking.hostName = "the";
   time.timeZone = "Europe/London";
 
-  # Use wpa_supplicant for WiFi.
-  networking.wireless.enable = true;
-  networking.wireless.driver = "nl80211,wext";
-  networking.wireless.interfaces = [ "wlp3s0" ];
-  networking.wireless.networks = config.secrets.wifi;
-
-  # Use Google's DNS servers (for now, at least).
-  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
+  # Use NetworkManager for WiFi.
+  networking.networkmanager.enable = true;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -263,6 +257,7 @@ in
       "colord" # Allow access to monitor calibration devices.
       "wheel" # Enable ‘sudo’ for the user.
       "adbusers" # Allow use of adb.
+      "networkmanager" # Allow network configuration.
     ];
     shell = pkgs.fish;
   } // config.secrets.userOptions;
@@ -322,6 +317,7 @@ in
     gnome.gnome-system-monitor
     gnome.gnome-power-manager
     gnome.gnome-boxes
+    gnome.networkmanagerapplet
     glimpse
     # dependency required for glimpse
     graphviz

@@ -39,12 +39,6 @@
         Additional options (e.g. the password) for the primary user.
       '';
     };
-    wifi = lib.mkOption {
-      default = {};
-      description = ''
-        WiFi networks to automatically connect to (see networking.wireless.networks).
-      '';
-    };
     talon-beta = lib.mkOption {
       type = with lib.types; nullOr (submodule {
         options = {
