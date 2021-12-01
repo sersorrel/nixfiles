@@ -54,6 +54,11 @@ in
           ];
         });
       });
+      i3status-rust = super.i3status-rust.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [
+          ./patches/i3status-rust-0001-uptime-warning.patch
+        ];
+      });
     })
     (self: super: {
       # https://github.com/NixOS/nixpkgs/pull/127289
