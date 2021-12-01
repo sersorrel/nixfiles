@@ -5,6 +5,8 @@
     [Desktop Entry]
     Type=Application
     Name=fish
+    Exec=fish
+    Terminal=true
     NoDisplay=true
   '';
   programs.fish = {
