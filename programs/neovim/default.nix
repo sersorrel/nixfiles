@@ -101,6 +101,15 @@ let
       sha256 = "0sssm39rlixd3hfqwa0x9y25jbdihdm9frmwrrfpvidipplafy0q";
     };
   };
+  vim-fugitive = assert pkgs.vimPlugins.vim-fugitive.version == "2021-05-18"; pkgs.vimUtils.buildVimPlugin { # https://github.com/tpope/vim-fugitive/issues/1904
+    name = "vim-fugitive";
+    src = pkgs.fetchFromGitHub {
+      owner = "tpope";
+      repo = "vim-fugitive";
+      rev = "79c2b3f48d574e63c2eba4fcd8d5ab729ddd41d1";
+      sha256 = "0rv6jw7p6i8lzh26zh7nv7byzbzfcikrk46c1gynpm72p7n2cfch";
+    };
+  };
   vim-one = pkgs.vimUtils.buildVimPlugin {
     name = "vim-one";
     src = pkgs.fetchFromGitHub {
