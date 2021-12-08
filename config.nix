@@ -8,6 +8,7 @@ in
   allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
     "discord"
     "insync"
+    "obsidian"
     "slack"
     "steam"
     "steam-original"

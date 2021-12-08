@@ -53,6 +53,7 @@
     ./nix-script.nix
     ./notify-send.nix
     ./obs.nix
+    ./obsidian.nix
     ./playerctl.nix
     ./pngcrush.nix
     ./rcu
