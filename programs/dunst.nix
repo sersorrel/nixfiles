@@ -30,7 +30,7 @@ in
         frame_color = "#aaaaaa";
         separator_color = "frame";
         idle_threshold = 600;
-        font = "Source Sans Variable 12";
+        font = "Source Sans 3 VF";
         markup = "full";
         format = "%a: <b>%s</b>\\n%b";
         show_age_threshold = 60;
