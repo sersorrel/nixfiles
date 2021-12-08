@@ -81,16 +81,4 @@
       ];
     });
   })
-  # https://github.com/NixOS/nixpkgs/issues/145840
-  (self: super: {
-    paper-icon-theme = assert super.paper-icon-theme.version == "2018-06-24"; super.paper-icon-theme.overrideAttrs (old: {
-      version = "2020-03-12";
-      src = super.fetchFromGitHub {
-        owner = "snwh";
-        repo = "paper-icon-theme";
-        rev = "aa3e8af7a1f0831a51fd7e638a4acb077a1e5188";
-        sha256 = "0x6qzch4rrc8firb1dcf926j93gpqxvd7h6dj5wwczxbvxi5bd77";
-      };
-    });
-  })
 ]

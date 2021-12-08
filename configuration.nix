@@ -292,7 +292,7 @@ in
     ];
     permittedInsecurePackages = [
       # Required for displaycal, https://github.com/NixOS/nixpkgs/issues/124590
-      "python2.7-Pillow-6.2.2"
+      # "python2.7-Pillow-6.2.2"
     ];
   };
   # Install some packages system-wide.
@@ -321,7 +321,7 @@ in
     glimpse
     # dependency required for glimpse
     graphviz
-    displaycal
+    # displaycal
     gcc
     man-pages
     man-pages-posix

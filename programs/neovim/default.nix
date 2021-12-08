@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> {};
   cmp-buffer = pkgs.vimUtils.buildVimPlugin {
     name = "cmp-buffer";
     src = pkgs.fetchFromGitHub {
@@ -65,15 +64,6 @@ let
       sha256 = "15w4bdqzz62cq56idwf0y191avk6zp8c09lhq3dm1w4v15rqsxqs";
     };
   };
-  rust-tools-nvim = assert builtins.compareVersions pkgs.vimPlugins.rust-tools-nvim.version "2021-09-16" == -1; pkgs.vimUtils.buildVimPlugin { # https://github.com/simrat39/rust-tools.nvim/issues/61
-    name = "rust-tools-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "simrat39";
-      repo = "rust-tools.nvim";
-      rev = "83bf0cabe040a6e02b59296622c838831a2b5c4f";
-      sha256 = "0d2gl768rgd5l1wh9sq2z24rdmg5g27ib6fjfdcvxdlc2s5g333l";
-    };
-  };
   vim-angry = pkgs.vimUtils.buildVimPlugin {
     name = "vim-angry";
     src = pkgs.fetchFromGitHub {
@@ -99,15 +89,6 @@ let
       repo = "vim-crystalline";
       rev = "32698e3560ddb68bbb648fcfb677e9af45f70a79";
       sha256 = "0sssm39rlixd3hfqwa0x9y25jbdihdm9frmwrrfpvidipplafy0q";
-    };
-  };
-  vim-fugitive = assert pkgs.vimPlugins.vim-fugitive.version == "2021-05-18"; pkgs.vimUtils.buildVimPlugin { # https://github.com/tpope/vim-fugitive/issues/1904
-    name = "vim-fugitive";
-    src = pkgs.fetchFromGitHub {
-      owner = "tpope";
-      repo = "vim-fugitive";
-      rev = "79c2b3f48d574e63c2eba4fcd8d5ab729ddd41d1";
-      sha256 = "0rv6jw7p6i8lzh26zh7nv7byzbzfcikrk46c1gynpm72p7n2cfch";
     };
   };
   vim-one = pkgs.vimUtils.buildVimPlugin {
@@ -154,7 +135,6 @@ in
   '';
   programs.neovim = {
     enable = true;
-    package = assert builtins.compareVersions pkgs.neovim-unwrapped.version "0.5" == -1; unstable.neovim-unwrapped; # need neovim 0.5 for LSP support
     extraConfig = builtins.readFile ./init.vim;
     plugins = with pkgs.vimPlugins; [
       # Tim Pope
@@ -372,6 +352,6 @@ in
   };
   home.packages = with pkgs; [
     rnix-lsp
-    (assert builtins.compareVersions rust-analyzer.version "2021-07-19" == -1; unstable.rust-analyzer) # https://github.com/rust-analyzer/rust-analyzer/issues/8925
+    rust-analyzer
   ];
 }

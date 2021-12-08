@@ -1,13 +1,11 @@
 { lib, pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> { overlays = import ../overlays.nix; };
   esc = builtins.fromJSON ''"\u001B"'';
 in
 {
   programs.starship = {
     enable = true;
-    package = assert builtins.compareVersions pkgs.starship.version "0.58.0" == -1; unstable.starship; # $all deduplication, https://github.com/starship/starship/pull/3026
     settings = {
       battery = {
         disabled = true;
