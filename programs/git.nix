@@ -21,6 +21,7 @@
       branches = "branch -vv --list";
       stashes = "stash list";
       tags = "tag --list";
+      worktrees = "worktree list";
       aliases = "!git config -l | grep alias | cut -c 7-";
       ls = "log --pretty=format:'%C(yellow)%h%C(auto)%d %C(reset)%s %C(cyan)%an %C(green)%ar %C(reset)%C(dim)(%G?)%C(nodim)' --decorate";
       graph = "ls --graph";
