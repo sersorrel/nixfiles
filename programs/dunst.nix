@@ -32,6 +32,7 @@ in
         horizontal_padding = 16;
         frame_color = "#aaaaaa";
         separator_color = "frame";
+        frame_width = 0;
         idle_threshold = 600;
         font = "Source Sans 3 VF";
         markup = "full";
