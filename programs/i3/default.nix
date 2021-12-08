@@ -3,6 +3,7 @@
 let
   unstable = import <nixos-unstable> {};
   fa-bluetooth-b = builtins.fromJSON ''"\uF294"'';
+  fa-headphones = builtins.fromJSON ''"\uF025"'';
   fa-microphone-slash = builtins.fromJSON ''"\uF131"'';
   fa-tv = builtins.fromJSON ''"\uF26C"'';
   fa-university = builtins.fromJSON ''"\uF19C"'';
@@ -88,6 +89,10 @@ in
             on_click = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
             hide_when_empty = true;
             shell = "sh";
+          }
+          {
+            block = "sound";
+            format = "${fa-headphones}";
           }
           {
             block = "disk_space";
