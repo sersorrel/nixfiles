@@ -24,7 +24,10 @@ in
     settings = {
       global = {
         monitor = 0;
-        geometry = "300x5-30+30";
+        follow = "none";
+        width = 300;
+        offset = "30x30";
+        notification_limit = 5;
         padding = 16;
         horizontal_padding = 16;
         frame_color = "#aaaaaa";
@@ -38,7 +41,7 @@ in
         icon_position = "left";
         max_icon_size = 24;
         corner_radius = 4;
-        dmenu_path = "/run/current-system/sw/bin/rofi -dmenu -p ''";
+        dmenu = "/run/current-system/sw/bin/rofi -dmenu -p ''";
         browser = "/run/current-system/sw/bin/google-chrome-stable";
         mouse_left_click = "do_action";
         mouse_middle_click = "close_current";
