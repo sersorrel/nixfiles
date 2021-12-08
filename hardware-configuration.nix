@@ -79,6 +79,24 @@
       options = [ "bind" ];
     };
 
+  fileSystems."/var/lib/AccountsService" =
+    { device = "/persist/var/lib/AccountsService";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var/lib/NetworkManager" =
+    { device = "/persist/var/lib/NetworkManager";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/etc/NetworkManager/system-connections" =
+    { device = "/persist/etc/NetworkManager/system-connections";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
   fileSystems."/home" =
     { device = "/persist/home";
       fsType = "none";
