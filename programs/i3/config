@@ -104,10 +104,10 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 9%-; exec -
 bindsym Shift+XF86MonBrightnessUp exec --no-startup-id brightnessctl set 1%+; exec --no-startup-id sleep 0.05 && notify-send -a brightness -h string:synchronous:brightness -h int:value:$(( $(brightnessctl get) * 100 / $(brightnessctl max) )) $(( $(brightnessctl get) * 100 / $(brightnessctl max) ))%
 bindsym Shift+XF86MonBrightnessDown exec --no-startup-id brightnessctl set 1%-; exec --no-startup-id sleep 0.05 && notify-send -a brightness -h string:synchronous:brightness -h int:value:$(( $(brightnessctl get) * 100 / $(brightnessctl max) )) $(( $(brightnessctl get) * 100 / $(brightnessctl max) ))%
 
-bindsym $mod+d exec rofi -show run -display-window '' -display-run '' -display-ssh '' -display-drun ''
-bindsym $mod+Shift+d exec rofi -show drun -display-window '' -display-run '' -display-ssh '' -display-drun ''
-bindsym $mod+grave exec rofi -show window -display-window '' -display-run '' -display-ssh '' -display-drun ''
-bindsym $mod+Menu exec bash -c 'set -o pipefail && out=$(2>&1 eval $(grep -v "^#" ~/.local/bin/commands.list | rofi -dmenu -i -p "" | cut -f2-)) || notify-send "Task failed" "$out"'
+bindsym $mod+d exec --no-startup-id rofi -show run -display-window '' -display-run '' -display-ssh '' -display-drun ''
+bindsym $mod+Shift+d exec --no-startup-id rofi -show drun -display-window '' -display-run '' -display-ssh '' -display-drun ''
+bindsym $mod+grave exec --no-startup-id rofi -show window -display-window '' -display-run '' -display-ssh '' -display-drun ''
+bindsym $mod+Menu exec --no-startup-id bash -c 'set -o pipefail && out=$(2>&1 eval $(grep -v "^#" ~/.local/bin/commands.list | rofi -dmenu -i -p "" | cut -f2-)) || notify-send "Task failed" "$out"'
 
 bindsym --release Print exec --no-startup-id screenshot ~/Pictures/Screenshots/"Screenshot from $(date '+%Y-%m-%d %H-%M-%S').png"
 bindsym --release Ctrl+Print exec --no-startup-id screenshot | xclip -selection clipboard -t image/png
