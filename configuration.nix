@@ -158,6 +158,7 @@ in
   services.xserver.desktopManager.xfce.enable = false;
   services.xserver.desktopManager.wallpaper.mode = "fill";
   services.xserver.windowManager.i3.enable = true;
+  services.xserver.windowManager.i3.package = pkgs.i3-gaps;
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
     i3status-rust
     rofi
