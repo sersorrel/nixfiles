@@ -3,7 +3,7 @@
 # vim: set noet ts=56:
 Fix audio	x=$(fix-audio); if [ $? -eq 0 ]; then notify-send -h string:synchronous:fix-audio "Audio fixed!" "now using $(printf '%s\n' "$x" | tail -n1)" && display-volume; else notify-send -h string:synchronous:fix-audio "fug" "$x"; fi
 Switch workspace	x=$(zenity --entry --title "Switch workspace" --text "Workspace number:"); test $? -eq 0 && i3-msg workspace "$x"
-Disable notifications	systemctl --user mask --now dunst
-Enable notifications	systemctl --user unmask --now dunst
+Disable notifications	systemctl --user kill -s SIGUSR1 dunst
+Enable notifications	systemctl --user kill -s SIGUSR2 dunst
 Screenshot monitor/display	screenshot-display ~/Pictures/Screenshots/"Screenshot from $(date '+%Y-%m-%d %H-%M-%S').png"
 Screenshot monitor/display to clipboard	screenshot-display | xclip -selection clipboard -t image/png
