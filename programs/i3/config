@@ -11,8 +11,8 @@ bindsym $textier+c exec --no-startup-id iot big-lamp off
 bindsym $textier+d exec --no-startup-id iot big-lamp on
 bindsym $textier+g exec --no-startup-id iot small-lamp off
 bindsym $textier+h exec --no-startup-id iot small-lamp on
-# bindsym $textier+k exec --no-startup-id iot heater off
-# bindsym $textier+l exec --no-startup-id iot heater on
+bindsym $textier+k exec --no-startup-id iot heater off
+bindsym $textier+l exec --no-startup-id iot heater on
 bindsym $textier+a exec --no-startup-id notify-send hi
 bindsym $textier+q [urgent=latest] focus
 bindsym $textier+j exec sleep 1 && systemctl suspend
