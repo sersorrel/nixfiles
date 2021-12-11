@@ -9,19 +9,31 @@
     associations.added = {
       "application/json" = "vim.desktop";
       "application/x-shellscript" = "vim.desktop";
+      "application/gzip" = "org.gnome.FileRoller.desktop";
+      "application/xhtml+xml" = "vim.desktop";
+      "application/xml" = "vim.desktop";
       "audio/mpeg" = "org.gnome.Totem.desktop";
+      "audio/ogg" = "org.gnome.Totem.desktop";
       "audio/x-wav" = "org.gnome.Totem.desktop";
       "image/jpeg" = "org.gnome.eog.desktop";
-      "image/png" = "org.gnome.eog.desktop";
+      "image/png" = [ "org.glimpse_editor.Glimpse.desktop" "org.gnome.eog.desktop" ];
+      "text/html" = "vim.desktop";
       "text/markdown" = "vim.desktop";
       "text/plain" = "vim.desktop";
+      "text/x-java" = "vim.desktop";
+      "text/x-makefile" = "vim.desktop";
       "text/x-python" = "vim.desktop";
     };
-    associations.removed = {};
+    associations.removed = {
+      "audio/mp4" = "org.kde.kid3-qt.desktop";
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [ "calibre-ebook-edit.desktop" "calibre-gui.desktop" "calibre-ebook-viewer.desktop" ];
+    };
     defaultApplications = {
       "application/pdf" = "org.gnome.Evince.desktop";
       "audio/flac" = "org.gnome.Totem.desktop";
+      "audio/mp4" = "org.gnome.Totem.desktop";
       "audio/mpeg" = "org.gnome.Totem.desktop";
+      "audio/x-vorbis+ogg" = "org.gnome.Totem.desktop";
       "image/gif" = "org.gnome.eog.desktop";
       "image/jpeg" = "org.gnome.eog.desktop";
       "image/png" = "org.gnome.eog.desktop";
@@ -33,6 +45,7 @@
       "x-scheme-handler/mailto" = "google-chrome.desktop";
       "x-scheme-handler/unknown" = "google-chrome.desktop";
       "x-scheme-handler/webcal" = "google-chrome.desktop";
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "writer.desktop";
     };
   };
   xdg.userDirs = {
