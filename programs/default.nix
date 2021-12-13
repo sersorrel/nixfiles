@@ -63,6 +63,7 @@
     ./signal.nix
     ./slack.nix
     ./some.nix
+    ./sqlitebrowser.nix
     ./ssh.nix
     ./starship.nix
     ./steam.nix
