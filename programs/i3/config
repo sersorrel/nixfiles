@@ -114,7 +114,7 @@ bindsym --release Ctrl+Print exec --no-startup-id screenshot | xclip -selection 
 bindsym --release Shift+Print exec --no-startup-id screenshot -s ~/Pictures/Screenshots/"Screenshot from $(date '+%Y-%m-%d %H-%M-%S').png"
 bindsym --release Ctrl+Shift+Print exec --no-startup-id screenshot -s | xclip -selection clipboard -t image/png
 # https://github.com/flameshot-org/flameshot/issues/784
-bindsym $mod+Print exec "sh -c 'focusedwindow=$(xdotool getactivewindow) && flameshot gui -g >/dev/null; test \\"$focusedwindow\\" == \\"$(xdotool getactivewindow)\\" && xdotool windowfocus \\"$focusedwindow\\"'"
+bindsym $mod+Print exec --no-startup-id "sh -c 'focusedwindow=$(xdotool getactivewindow) && flameshot gui -g >/dev/null; test \\"$focusedwindow\\" == \\"$(xdotool getactivewindow)\\" && xdotool windowfocus \\"$focusedwindow\\"'"
 
 # change focus
 bindsym $mod+h focus left
