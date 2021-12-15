@@ -4,6 +4,7 @@
     ./any-nix-shell.nix
     ./bash.nix
     ./bat.nix
+    ./bintools.nix
     ./brightnessctl.nix
     ./calibre.nix
     ./colordiff.nix
