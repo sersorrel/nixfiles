@@ -310,13 +310,13 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # lock the screen
-bindsym $mod+Shift+f exec lock
+bindsym $mod+Shift+f exec --no-startup-id lock
 # lock the screen and force it to turn off now
-bindsym $mod+Shift+p exec lock xset dpms force off
+bindsym $mod+Shift+p exec --no-startup-id lock xset dpms force off
 # lock the screen and suspend
-bindsym $mod+Shift+BackSpace exec lock systemctl suspend
+bindsym $mod+Shift+BackSpace exec --no-startup-id lock systemctl suspend
 
 bindsym $mod+r exec --no-startup-id remind $(zenity --entry --text "Reminder (time message):" --title "New reminder" --width 400)
 
