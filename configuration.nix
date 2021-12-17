@@ -363,8 +363,6 @@ in
 
   services.autorandr.enable = true;
 
-  services.opensnitch.enable = true;
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
