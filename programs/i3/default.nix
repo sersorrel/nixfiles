@@ -183,11 +183,6 @@ in
             block = "time";
             format = "%A %F %-I:%M %P";
           }
-          {
-            block = "custom";
-            command = ''echo -n @; math --scale 0 '('(date +%s)' + 3600) % 86400 / 86.4';'';
-            shell = "fish";
-          }
         ];
       };
     };
