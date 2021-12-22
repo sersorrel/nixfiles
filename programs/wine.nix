@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    wine
+    wineWowPackages.unstable
+    winetricks
   ];
 }
