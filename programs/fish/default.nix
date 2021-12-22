@@ -49,7 +49,7 @@
         wraps = "http";
         body = "http --default-scheme https $argv";
       };
-      icat = "kitty +kitten icat $argv";
+      icat = "kitty +kitten icat --align left --place (math $COLUMNS - 2)x(math $LINES - 2)@0x(math $LINES - 1) $argv";
       kd = {
         wraps = "fd";
         body = "kitty +kitten hyperlinked_fd $argv";
