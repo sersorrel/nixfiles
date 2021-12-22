@@ -61,11 +61,11 @@ set $qgreen #8dc63f
 set $qorange #f7941d
 set $qpink #ec008c
 
-# class                 border    bg        text  indicator child_border
-client.focused          $qgreen   $qgreen   $fg0  $qgreen   $qgreen
-client.focused_inactive $bg1      $bg1      $fg0  $bg3      $bg2
-client.unfocused        #ffffff88 #ffffff88 $fg0  $bg4      #ffffff88
-client.urgent           $qorange  $qorange  $fg0  $qorange  $qorange
+# class                 border   bg       text  indicator child_border
+client.focused          $qgreen  $qgreen  $fg0  $qgreen   $qgreen
+client.focused_inactive $bg1     $bg1     $fg0  $bg3      $bg2
+client.unfocused        $bg2     $bg2     $fg0  $bg4      $bg3
+client.urgent           $qorange $qorange $fg0  $qorange  $qorange
 
 bindsym $mod+Shift+b border toggle
 
