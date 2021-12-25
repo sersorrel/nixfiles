@@ -27,6 +27,7 @@
     ./frescobaldi.nix
     ./fzf.nix
     ./gammastep.nix
+    ./gdb.nix
     ./git.nix
     ./gpg.nix
     ./hexchat
