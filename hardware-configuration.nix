@@ -91,6 +91,12 @@
       options = [ "bind" ];
     };
 
+  fileSystems."/var/secrets" =
+    { device = "/persist/var/secrets";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
   fileSystems."/etc/NetworkManager/system-connections" =
     { device = "/persist/etc/NetworkManager/system-connections";
       fsType = "none";
