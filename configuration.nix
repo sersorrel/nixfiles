@@ -272,11 +272,6 @@ in
 
   # Persist the machine ID across reboots.
   environment.etc."machine-id".source = "/persist/etc/machine-id";
-  systemd.tmpfiles.rules = [
-    # Save some randomness across reboots (or attempt to).
-    # TODO: does this run early enough to be useful?
-    "L /var/lib/systemd/random-seed - - - - /persist/var/lib/systemd/random-seed"
-  ];
 
   nixpkgs.config = {
     # Allow installation of listed non-free packages.

@@ -67,8 +67,8 @@
       options = [ "bind" ];
     };
 
-  fileSystems."/var/lib/systemd/coredump" =
-    { device = "/persist/var/lib/systemd/coredump";
+  fileSystems."/var/lib/systemd" =
+    { device = "/persist/var/lib/systemd";
       fsType = "none";
       options = [ "bind" ];
     };
