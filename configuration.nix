@@ -309,6 +309,7 @@ in
     pciutils
     nvtop
     nvidia-offload # defined above
+    polkit_gnome
     gnome.adwaita-icon-theme
     gnome.cheese
     gnome.file-roller
@@ -319,6 +320,7 @@ in
     gnome.gnome-boxes
     gnome.networkmanagerapplet
     glimpse
+    gparted
     # dependency required for glimpse
     graphviz
     # displaycal
