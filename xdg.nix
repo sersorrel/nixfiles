@@ -17,6 +17,7 @@
       "audio/x-wav" = "org.gnome.Totem.desktop";
       "image/jpeg" = "org.gnome.eog.desktop";
       "image/png" = [ "org.glimpse_editor.Glimpse.desktop" "org.gnome.eog.desktop" ];
+      "image/x-dds" = "org.glimpse_editor.Glimpse.desktop";
       "text/html" = "vim.desktop";
       "text/markdown" = "vim.desktop";
       "text/plain" = "vim.desktop";
@@ -37,6 +38,7 @@
       "image/gif" = "org.gnome.eog.desktop";
       "image/jpeg" = "org.gnome.eog.desktop";
       "image/png" = "org.gnome.eog.desktop";
+      "image/x-dds" = "org.glimpse_editor.Glimpse.desktop";
       "text/html" = "google-chrome.desktop";
       "text/markdown" = "vim.desktop";
       "x-scheme-handler/about" = "google-chrome.desktop";
