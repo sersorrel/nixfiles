@@ -298,6 +298,7 @@ in
     pavucontrol
     google-chrome
     ncdu
+    borgbackup
     git
     github-cli
     file
@@ -358,6 +359,30 @@ in
   };
 
   services.autorandr.enable = true;
+
+  # Backups
+  services.borgbackup.jobs = {
+    the = {
+      paths = [ "/persist" ];
+      repo = "/run/media/ash/Az/shared/borg/the";
+      doInit = false;
+      removableDevice = true;
+      preHook = ''
+        ${pkgs.glib}/bin/gio mount -d 6c2e615b-73e4-40c5-99ae-253fc2c506da
+      '';
+      encryption = {
+        mode = "repokey";
+        passCommand = "cat /var/secrets/borg-az-the.key";
+      };
+      compression = "zstd,5";
+      prune = {
+        keep = {
+          within = "1y";
+        };
+      };
+      startAt = "13:00:00";
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
