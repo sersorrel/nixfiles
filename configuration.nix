@@ -90,6 +90,12 @@ in
   networking.hostName = "the";
   time.timeZone = "Europe/London";
 
+  # For any individual build, don't use all cores.
+  nix.buildCores = 2;
+  # Don't build too many derivations in parallel.
+  nix.maxJobs = 3;
+  # It would be nice to be able to limit the product of those rather than the individual coefficients, but hey.
+
   # Use NetworkManager for WiFi.
   networking.networkmanager.enable = true;
 
