@@ -1,5 +1,4 @@
-#!/usr/bin/env nix-script-bash
-#!runtimeInputs jq
+#!/usr/bin/env bash
 # vim: set ft=bash:
 
 # swaps the visible workspaces between the two attached outputs

@@ -1,6 +1,7 @@
 #!/usr/bin/env nix-script-bash
 #!runtimeInputs bat bintools bzip2 gnutar gzip p7zip poppler_utils unzip xz
 # vim: set ft=bash:
+# shellcheck shell=bash
 
 # If we can't read the input file, bail out.
 if ! [ -r "$1" ]; then

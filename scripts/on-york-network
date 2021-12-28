@@ -1,6 +1,7 @@
 #!/usr/bin/env nix-script-bash
 #!runtimeInputs curl jq
 # vim: set ft=bash:
+# shellcheck shell=bash
 
 ip=$(curl -s https://httpbin.org/ip | jq -r .origin)
 

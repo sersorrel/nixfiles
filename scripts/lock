@@ -1,6 +1,7 @@
 #!/usr/bin/env nix-script-bash
 #!runtimeInputs imagemagick dunst
 # vim: set ft=bash:
+# shellcheck shell=bash
 
 # locks the screen, then forks
 

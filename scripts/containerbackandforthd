@@ -1,6 +1,7 @@
 #!/usr/bin/env nix-script-bash
 #!runtimeInputs moreutils
 # vim: set ft=bash:
+# shellcheck shell=bash
 
 set -o pipefail
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env nix-script-bash
+#!/usr/bin/env bash
 # vim: set ft=bash:
 
 set -e
