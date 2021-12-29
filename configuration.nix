@@ -59,6 +59,11 @@ in
           ./patches/i3status-rust-0001-uptime-warning.patch
         ];
       });
+      i3 = super.i3.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [
+          ./patches/i3-0001-i3bar-border.patch
+        ];
+      });
     })
     (self: super: {
       # https://github.com/NixOS/nixpkgs/pull/127289
