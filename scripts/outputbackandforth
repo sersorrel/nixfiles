@@ -21,7 +21,7 @@ if ! [ "$old_output" ]; then
 fi
 
 if [ "$1" != "-n" ] && [ "$1" != "--dry-run" ]; then
-	i3-msg "focus output $old_output"
+	i3-msg -q "focus output $old_output"
+else
+	printf '%s\n' "$old_output"
 fi
-
-printf '%s\n' "$old_output"

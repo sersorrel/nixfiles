@@ -27,7 +27,7 @@ if [ -n "$switching_to_output" ] && [ "$output" != "$switching_to_output" ]; the
 fi
 
 if [ "$1" != "-n" ] && [ "$1" != "--dry-run" ]; then
-	i3-msg "workspace $workspace"
+	i3-msg -q "workspace $workspace"
+else
+	printf '%s\n' "$workspace"
 fi
-
-printf '%s\n' "$workspace"

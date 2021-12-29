@@ -18,8 +18,7 @@ if [ "$1" != "-n" ] && [ "$1" != "--dry-run" ]; then
 		if [ "$window_id" = "$this_window_id" ]; then
 			continue
 		fi
-		if i3-msg "[con_id=$window_id] focus"; then
-			printf '%s\n' "$window_id"
+		if i3-msg -q "[con_id=$window_id] focus"; then
 			exit 0
 		fi
 	done
