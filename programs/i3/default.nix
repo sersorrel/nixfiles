@@ -182,6 +182,7 @@ in
           {
             block = "time";
             format = "%A %F %-I:%M %P";
+            interval = 2;
           }
         ];
       };
