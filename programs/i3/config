@@ -16,6 +16,7 @@ bindsym $textier+j exec sleep 1 && systemctl suspend
 
 font pango:Jost* Book 11
 title_align center
+for_window [all] title_window_icon on
 
 default_border normal 0
 default_floating_border normal 0
