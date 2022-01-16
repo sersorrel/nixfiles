@@ -214,6 +214,7 @@ in
   };
 
   # Configure keymap in X11.
+  # https://twitter.com/mycoliza/status/1161307160254410753
   services.xserver.layout = "gb-qw0rty";
   services.xserver.xkbOptions = "caps:super,altwin:swap_lalt_lwin,lv3:ralt_switch_multikey";
   services.xserver.extraLayouts.gb-qw0rty = {
