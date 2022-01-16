@@ -374,19 +374,21 @@ in
 
   # Backups
   services.borgbackup.jobs = {
-    the = {
+    persist = {
       paths = [ "/persist" ];
-      repo = "/run/media/ash/Az/shared/borg/the";
+      repo = "/media/Az/shared/borg/the";
       doInit = false;
       removableDevice = true;
-      preHook = ''
-        ${pkgs.glib}/bin/gio mount -d 6c2e615b-73e4-40c5-99ae-253fc2c506da
-      '';
+      # This doesn't work, since the job can't run unless the drive is mounted (see systemd ReadWritePaths).
+      # If the path was made optional, it wouldn't have write permissions to it once it was mounted.
+      # preHook = ''
+      #   ${pkgs.glib}/bin/gio mount -d 6c2e615b-73e4-40c5-99ae-253fc2c506da
+      # '';
       encryption = {
         mode = "repokey";
         passCommand = "cat /var/secrets/borg-az-the.key";
       };
-      compression = "zstd,5";
+      compression = "zstd";
       prune = {
         keep = {
           within = "1y";
@@ -395,6 +397,16 @@ in
       startAt = "13:00:00";
     };
   };
+
+  systemd.tmpfiles.rules = [
+    # Create and clean /media (much like /run).
+    "D /media 0755 root root 0 -"
+  ];
+
+  services.udev.extraRules = ''
+    # Mount Az in /media rather than in /run/media/$USER.
+    ENV{ID_FS_UUID}=="6c2e615b-73e4-40c5-99ae-253fc2c506da", ENV{UDISKS_FILESYSTEM_SHARED}="1"
+  '';
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
