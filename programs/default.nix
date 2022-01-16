@@ -59,6 +59,7 @@
     ./playerctl.nix
     ./pngcrush.nix
     ./rcu
+    ./readline.nix
     ./rhythmbox.nix
     ./ripgrep.nix
     ./rustup.nix
