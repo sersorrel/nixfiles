@@ -35,6 +35,8 @@ include "%L"
 ## Maths
 <Multi_key> <3> <equal> : "≡" U2261 # IDENTICAL TO
 <Multi_key> <equal> <3> : "≡" U2261 # IDENTICAL TO
+<Multi_key> <4> <equal> : "≣" U2263 # STRICTLY EQUIVALENT TO
+<Multi_key> <equal> <4> : "≣" U2263 # STRICTLY EQUIVALENT TO
 <Multi_key> <exclam> <3> <equal> : "≢" U2262 # NOT IDENTICAL TO
 <Multi_key> <exclam> <equal> <3> : "≢" U2262 # NOT IDENTICAL TO
 <Multi_key> <p> <i> : "π" U03C0 # GREEK SMALL LETTER PI
