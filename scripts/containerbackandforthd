@@ -1,36 +1,37 @@
-#!/usr/bin/env nix-script-bash
-#!runtimeInputs moreutils
-# vim: set ft=bash:
-# shellcheck shell=bash
+#!/usr/bin/env nix-script
+#!build true
+#!runtimeInputs python310
+#!interpreter python
+# vim: set ft=python:
 
-set -o pipefail
+import json
+import os
+import shutil
+import subprocess
+from pathlib import Path
 
-dir="/var/run/user/$(id -u)/i3containerbackandforthd"
+UID = os.getuid()
+DIR = Path(f"/var/run/user/{UID}/i3containerbackandforthd")
 
-if [ "$1" = "-v" ] || [ "$1" = "--verbose" ]; then
-	dbg() {
-		echo "$@" >&2
-	}
-	dbg "Logging verbosely."
-else
-	dbg() { :; }
-fi
+if DIR.exists():
+    shutil.rmtree(DIR)
 
-rm -rf "$dir"
-mkdir -p "$dir"
-
-while read -r event; do
-	# We're only interested in changes of focus.
-	if [ "$(jq -r '.change' <<< "$event")" != "focus" ]; then
-		continue
-	fi
-	new_window_id=$(jq -r '.container.id' <<< "$event")
-	dbg "Received an event."
-	if [ "$new_window_id" != "null" ]; then
-		dbg "Changed window. (to $new_window_id)"
-		{ printf '%s\n' "$new_window_id"; test -e "$dir/history" && head -n 10 "$dir/history"; } | sponge "$dir/history"
-	else
-		dbg "Got 'null' as window id, ignoring."
-	fi
-	dbg
-done < <(i3-msg -t subscribe -m '["window"]')
+with subprocess.Popen(
+    ["i3-msg", "-t", "subscribe", "-m", '["window"]'],
+    stdout=subprocess.PIPE,
+    bufsize=1,
+    text=True,
+) as p:
+    for line in p.stdout:
+        data = json.loads(line)
+        if data["change"] != "focus":
+            continue
+        new_window_id = data["container"]["id"]
+        if new_window_id is not None:
+            try:
+                with open(DIR / "history") as f:
+                    lines = f.readlines()
+            except Exception:
+                lines = []
+            with open(DIR / "history", "w") as f:
+                f.writelines(([str(new_window_id) + "\n"] + lines)[:10])

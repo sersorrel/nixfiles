@@ -1,60 +1,54 @@
-#!/usr/bin/env bash
-# vim: set ft=bash:
+#!/usr/bin/env nix-script
+#!build true
+#!runtimeInputs python310
+#!interpreter python
+# vim: set ft=python:
 
-# set -e
-set -o pipefail
+import json
+import os
+import shutil
+import subprocess
+from pathlib import Path
 
-dir="/var/run/user/$(id -u)/i3backandforthd"
+UID = os.getuid()
+DIR = Path(f"/var/run/user/{UID}/i3backandforthd")
 
-if [ "$1" = "-v" ] || [ "$1" = "--verbose" ]; then
-	dbg() {
-		echo "$@" >&2
-	}
-else
-	dbg() { :; }
-fi
+if DIR.exists():
+    shutil.rmtree(DIR)
 
-rm -rf "$dir"
-mkdir -p "$dir/current" "$dir/old"
-
-while read -r event; do
-	# We're only interested in changes of focus.
-	if [ "$(jq -r '.change' <<< "$event")" != "focus" ]; then
-		continue
-	fi
-	old_output=$(jq -r '.old.output' <<< "$event")
-	current_output=$(jq -r '.current.output' <<< "$event")
-	old_workspace=$(jq -r '.old.name' <<< "$event")
-	current_workspace=$(jq -r '.current.name' <<< "$event")
-	# NB: We don't write to $old_output, because the workspace on the old output can't have changed.
-	dbg "Received an event. ($old_workspace on $old_output to $current_workspace on $current_output)"
-	if [ "$old_output" != "$current_output" ]; then
-		dbg "We changed output. (From $old_output to $current_output)"
-		# If we changed output, we have to use stored data to work out whether we just changed workspace on the new output.
-		if [ -e "$dir/current/$current_output" ]; then
-			prev_current_workspace=$(cat "$dir/current/$current_output")
-			dbg "We know what the current workspace used to be. (It was $prev_current_workspace)"
-			if [ "$prev_current_workspace" != "$current_workspace" ]; then
-				dbg "We changed workspace on a different output. (From $prev_current_workspace to $current_workspace on $current_output)"
-				# We just changed workspace to $current_workspace, on $current_output.
-				printf '%s\n' "$prev_current_workspace" > "$dir/old/$current_output"
-				printf '%s\n' "$current_workspace" > "$dir/current/$current_output"
-			else
-				dbg "We just returned to a different output. (Not doing anything)"
-				# Otherwise, we just returned to the same workspace that was already selected, so there's no need to change anything.
-				:
-			fi
-		else
-			dbg "We don't know what the old workspace was. (Updating the current workspace for $current_output to $current_workspace)"
-			# Otherwise, we don't know what the old workspace for the current output was, so we can't tell if it changed, but we should still update the current workspace on the current output.
-			printf '%s\n' "$current_workspace" > "$dir/current/$current_output"
-		fi
-	else
-		dbg "We changed workspace on the same output. (From $old_workspace to $current_workspace)"
-		# If we stayed on the same output, it's much easier, because all the information we need is in the event.
-		printf '%s\n' "$old_workspace" > "$dir/old/$current_output"
-		printf '%s\n' "$current_workspace" > "$dir/current/$current_output"
-	fi
-	# TODO: can the above two cases be combined? (Is it actually worth the effort to do so?)
-	dbg
-done < <(i3-msg -t subscribe -m '["workspace"]')
+with subprocess.Popen(
+    ["i3-msg", "-t", "subscribe", "-m", '["workspace"]'],
+    stdout=subprocess.PIPE,
+    bufsize=1,
+    text=True,
+) as p:
+    for line in p.stdout:
+        data = json.loads(line)
+        if data["change"] != "focus":
+            continue
+        old_output = data["old"]["output"]
+        current_output = data["current"]["output"]
+        old_workspace = data["old"]["name"]
+        current_workspace = data["current"]["name"]
+        if old_output != current_output:
+            # If we changed output, we have to use stored data to work out whether we changed workspace on the new output.
+            if (DIR / "current" / current_output).exists():
+                with open(DIR / "current" / current_output) as f:
+                    prev_current_workspace = f.read().strip()
+                if prev_current_workspace != current_workspace:
+                    # We changed workspace to current_workspace, on current_output.
+                    with open(DIR / "old" / current_output, "w") as f:
+                        f.write(prev_current_workspace)
+                    with open(DIR / "current" / current_output, "w") as f:
+                        f.write(current_workspace)
+                # Otherwise, we just returned to the same workspace that was already selected.
+            else:
+                # We don't know what the old workspace for the current output was, but regardless:
+                with open(DIR / "current" / current_output, "w") as f:
+                    f.write(current_workspace)
+        else:
+            # We stayed on the same output, so all the information we need is in the event.
+            with open(DIR / "old" / current_output, "w") as f:
+                f.write(old_workspace)
+            with open(DIR / "current" / current_output, "w") as f:
+                f.write(current_workspace)
