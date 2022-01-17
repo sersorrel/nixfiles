@@ -47,7 +47,6 @@
     ./less.nix
     ./libreoffice.nix
     ./lorri.nix
-    ./lutris.nix
     ./lyx.nix
     ./multimc.nix
     ./nemo.nix
