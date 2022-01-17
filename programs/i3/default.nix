@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> {};
   fa-bluetooth-b = builtins.fromJSON ''"\uF294"'';
   fa-headphones = builtins.fromJSON ''"\uF025"'';
   fa-microphone-slash = builtins.fromJSON ''"\uF131"'';
@@ -56,7 +55,6 @@ in
     '';
     programs.i3status-rust = {
       enable = true;
-      package = unstable.i3status-rust; # we need at least version 0.20.2 for the formatter changes
       bars.default = {
         settings = {
           theme = {
