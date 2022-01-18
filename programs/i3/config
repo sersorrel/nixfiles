@@ -318,6 +318,9 @@ bindsym $mod+Shift+BackSpace exec --no-startup-id lock systemctl suspend
 
 bindsym $mod+r exec --no-startup-id remind $(zenity --entry --text "Reminder (time message):" --title "New reminder" --width 400)
 
+exec --no-startup-id udevadm monitor -us usb/usb_device | grep --line-buffered -w add | xargs -d '\n' -I{} paplay /home/ash/src/nixfiles/secrets/device-add.wav
+exec --no-startup-id udevadm monitor -us usb/usb_device | grep --line-buffered -w remove | xargs -d '\n' -I{} paplay /home/ash/src/nixfiles/secrets/device-remove.wav
+
 set $mode_shutdown "(l)ogout, (s)hutdown, (r)eboot"
 mode $mode_shutdown {
         bindsym l exit
