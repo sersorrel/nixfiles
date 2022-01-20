@@ -251,6 +251,10 @@ in
     ls = null;
   };
 
+  environment.variables = {
+    LADSPA_PATH = "/run/current-system/sw/lib/ladspa";
+  };
+
   # Do not allow /etc/passwd and /etc/group to be changed e.g. with useradd(8).
   users.mutableUsers = false;
   # Define a user account.
@@ -327,6 +331,7 @@ in
     man-pages
     man-pages-posix
     mullvad-vpn
+    ladspaPlugins
   ];
 
   # Install more manual pages.
