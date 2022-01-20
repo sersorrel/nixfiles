@@ -48,6 +48,7 @@
     ./libreoffice.nix
     ./lorri.nix
     ./lyx.nix
+    ./make.nix
     ./nemo.nix
     ./neovim
     ./nix-script.nix
