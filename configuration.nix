@@ -91,6 +91,10 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable Switch controller support (pro controller, joycons).
+  boot.extraModulePackages = with config.boot.kernelPackages; [ hid-nintendo ];
+  services.joycond.enable = true;
+
   # Configure the machine's hostname and timezone.
   networking.hostName = "the";
   time.timeZone = "Europe/London";
