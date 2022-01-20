@@ -15,6 +15,7 @@ DIR = Path(f"/var/run/user/{UID}/i3containerbackandforthd")
 
 if DIR.exists():
     shutil.rmtree(DIR)
+DIR.mkdir()
 
 with subprocess.Popen(
     ["i3-msg", "-t", "subscribe", "-m", '["window"]'],
