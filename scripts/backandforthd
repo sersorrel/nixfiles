@@ -27,7 +27,7 @@ with subprocess.Popen(
 ) as p:
     for line in p.stdout:
         data = json.loads(line)
-        if data["change"] != "focus":
+        if data["change"] != "focus" or data["old"] is None:
             continue
         old_output = data["old"]["output"]
         current_output = data["current"]["output"]
