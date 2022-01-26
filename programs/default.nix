@@ -52,6 +52,7 @@
     ./nemo.nix
     ./neovim
     ./nix-script.nix
+    ./nix.nix
     ./notify-send.nix
     ./obs.nix
     ./obsidian.nix
