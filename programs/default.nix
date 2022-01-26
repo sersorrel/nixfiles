@@ -70,6 +70,7 @@
     ./ssh.nix
     ./starship.nix
     ./steam.nix
+    ./systemd.nix
     ./talon
     ./todoist.nix
     ./unicode.nix
