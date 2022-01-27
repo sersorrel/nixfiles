@@ -137,9 +137,6 @@ in
   # Enable Bluetooth support.
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-  # Disable HSP/HFP entirely.
-  # https://askubuntu.com/a/1250501/478436
-  hardware.bluetooth.settings.General.Disable = "Headset";
 
   # Use updated microcode when available.
   hardware.cpu.intel.updateMicrocode = true;
