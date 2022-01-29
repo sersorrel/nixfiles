@@ -6,6 +6,7 @@
     ./bat.nix
     ./bintools.nix
     ./brightnessctl.nix
+    ./calculator.nix
     ./calibre.nix
     ./colordiff.nix
     ./dconf-editor.nix
