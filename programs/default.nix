@@ -78,6 +78,7 @@
     ./vim
     ./whois.nix
     ./wine.nix
+    ./wxhexeditor.nix
     ./x
     ./xclip.nix
     ./youtube-dl.nix
