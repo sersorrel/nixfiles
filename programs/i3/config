@@ -287,11 +287,11 @@ bindsym $mod+x exec --no-startup-id exec i3-workspace-swap
 # switch between workspaces on the current output
 exec_always --no-startup-id exec backandforthd
 bindsym $mod+Tab exec --no-startup-id backandforth
-bindsym $mod+Shift+Tab exec --no-startup-id i3-msg "move container to workspace $(backandforth -n)" && backandforth
+bindsym $mod+Shift+Tab exec --no-startup-id i3-msg -q "move container to workspace $(backandforth -n)" && backandforth
 # switch between outputs
 exec_always --no-startup-id exec outputbackandforthd
 bindsym Mod1+Tab exec --no-startup-id outputbackandforth
-bindsym Mod1+Shift+Tab exec --no-startup-id i3-msg "move container to output $(outputbackandforth -n)" && outputbackandforth
+bindsym Mod1+Shift+Tab exec --no-startup-id i3-msg -q "move container to output $(outputbackandforth -n)" && outputbackandforth
 # switch between containers
 exec_always --no-startup-id exec containerbackandforthd
 bindsym $textier+r exec --no-startup-id containerbackandforth
