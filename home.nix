@@ -4,6 +4,7 @@
   imports = [
     ./fonts.nix
     ./programs
+    ./rs
     ./scripts
     ./secrets
     ./theme.nix
