@@ -2,6 +2,7 @@
   (self: super: let unstable = import <nixos-unstable> { overlays = []; }; in {
     kitty = assert builtins.compareVersions super.kitty.version "0.24.0" == -1; unstable.kitty;
     flameshot = assert builtins.compareVersions super.flameshot.version "11.0.0" == -1; unstable.flameshot;
+    rust-analyzer = unstable.rust-analyzer; # required to work properly with new Cargo versions
   })
   (self: super: {
     todoist-electron = super.todoist-electron.override {
