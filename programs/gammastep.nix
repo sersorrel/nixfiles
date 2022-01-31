@@ -11,6 +11,7 @@
       tray = true;
       # TODO: set provider to geoclue2 if possible
       temperature.day = 6500;
+      temperature.night = 3600;
     };
   };
 }
