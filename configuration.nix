@@ -91,9 +91,6 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Disable SMT/hyperthreading.
-  security.allowSimultaneousMultithreading = false;
-
   # Enable Switch controller support (pro controller, joycons).
   boot.extraModulePackages = with config.boot.kernelPackages; [ hid-nintendo ];
   services.joycond.enable = true;
