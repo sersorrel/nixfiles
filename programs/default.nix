@@ -22,6 +22,7 @@
     ./fd.nix
     ./ffmpeg.nix
     ./file2img
+    ./firefox.nix
     ./fish
     ./flac.nix
     ./flameshot.nix

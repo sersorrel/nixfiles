@@ -312,7 +312,6 @@ in
   environment.systemPackages = with pkgs; [
     vim # The Nano editor is also installed by default.
     wget
-    firefox
     pavucontrol
     google-chrome
     ncdu
