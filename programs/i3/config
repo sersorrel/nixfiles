@@ -23,6 +23,9 @@ default_floating_border normal 0
 # even windows with CSD should get a titlebar https://github.com/i3/i3/issues/2255
 for_window [tiling] border normal 0
 
+# avoid new qutebrowser tabs (read: windows) getting focus when opened from within qutebrowser
+no_focus [class="qutebrowser" instance=__focused__]
+
 workspace_layout tabbed
 
 # colours (gruvbox light)

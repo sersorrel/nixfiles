@@ -61,6 +61,7 @@
     ./obsidian.nix
     ./playerctl.nix
     ./pngcrush.nix
+    ./qutebrowser
     ./rcu
     ./readline.nix
     ./rhythmbox.nix
