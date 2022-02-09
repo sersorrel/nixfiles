@@ -49,6 +49,7 @@
     ./less.nix
     ./libreoffice.nix
     ./lorri.nix
+    ./lsof.nix
     ./lyx.nix
     ./make.nix
     ./nemo.nix
