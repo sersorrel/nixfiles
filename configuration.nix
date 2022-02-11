@@ -249,6 +249,8 @@ in
   services.xserver.libinput.enable = true;
   # Make the trackpad scroll the correct way.
   services.xserver.libinput.touchpad.naturalScrolling = true;
+  # Don't turn left+right-click into middle-click, at least on mice.
+  services.xserver.libinput.mouse.middleEmulation = false;
 
   # Support use of the Fish shell.
   programs.fish.enable = true;
