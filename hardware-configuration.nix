@@ -43,6 +43,12 @@
       options = [ "bind" ];
     };
 
+  fileSystems."/root" =
+    { device = "/persist/root";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
   fileSystems."/var/log" =
     { device = "/persist/var/log";
       fsType = "none";
