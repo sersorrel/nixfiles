@@ -44,7 +44,11 @@ in
     keyBindings.normal = {
       J = "spawn i3-msg focus left";
       K = "spawn i3-msg focus right";
+      "<Ctrl-Shift-Tab>" = "spawn i3-msg focus left";
+      "<Ctrl-Tab>" = "spawn i3-msg focus right";
       gh = "home";
+      yf = "hint links yank";
+      yt = "tab-clone";
       "<Backspace>" = "back";
       "<Shift-Backspace>" = "forward";
       "<Ctrl-Shift-t>" = "undo --window";
