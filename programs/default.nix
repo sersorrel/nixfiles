@@ -59,6 +59,7 @@
     ./notify-send.nix
     ./obs.nix
     ./obsidian.nix
+    ./peek.nix
     ./playerctl.nix
     ./pngcrush.nix
     ./qutebrowser
