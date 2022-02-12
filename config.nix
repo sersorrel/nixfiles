@@ -21,4 +21,7 @@ in
   packageOverrides = pkgs: {
     vim_configured = pkgs.vim_configurable.customize vim_config;
   };
+  permittedInsecurePackages = [
+    "electron-13.6.9" # for obsidian < 0.13.24, https://github.com/NixOS/nixpkgs/issues/158956
+  ];
 }
