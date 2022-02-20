@@ -16,6 +16,7 @@
     ./discord.nix
     ./display-volume.nix
     ./dunst.nix
+    ./element.nix
     ./evince.nix
     ./exa.nix
     ./exiftool.nix
