@@ -4,6 +4,18 @@
     flameshot = assert builtins.compareVersions super.flameshot.version "11.0.0" == -1; unstable.flameshot;
     rust-analyzer = unstable.rust-analyzer; # required to work properly with new Cargo versions
   })
+  # https://github.com/flameshot-org/flameshot/issues/2302
+  (self: super: {
+    flameshot = assert builtins.compareVersions super.flameshot.version "11.0.0" == 0; super.flameshot.overrideAttrs (old: {
+      version = "unstable-2022-02-18";
+      src = super.fetchFromGitHub {
+        owner = "flameshot-org";
+        repo = "flameshot";
+        rev = "aa6b5eac93ee92b58c5ead9404f60a760f667980";
+        sha256 = "0dckspmzyakn68r84j58njl73n5k662d0p6517v5jmwcqm3qrrkm";
+      };
+    });
+  })
   (self: super: {
     todoist-electron = super.todoist-electron.override {
       electron = super.electron_15;
