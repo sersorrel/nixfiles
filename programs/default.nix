@@ -55,6 +55,7 @@
     ./make.nix
     ./nemo.nix
     ./neovim
+    ./nix-prefetch.nix
     ./nix-script.nix
     ./nix.nix
     ./notify-send.nix
