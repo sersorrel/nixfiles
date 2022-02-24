@@ -320,6 +320,9 @@ in
     github-cli
     file
     pciutils
+    usbutils
+    xorg.xhost
+    glxinfo
     nvtop
     nvidia-offload # defined above
     polkit_gnome
