@@ -331,10 +331,7 @@ in
     gnome.gnome-power-manager
     gnome.gnome-boxes
     gnome.networkmanagerapplet
-    glimpse
     gparted
-    # dependency required for glimpse
-    graphviz
     # displaycal
     gcc
     man-pages
