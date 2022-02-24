@@ -160,6 +160,7 @@ in
 
   # Enable Samba, and allow SMBv1.
   services.samba.enable = true;
+  services.samba.enableNmbd = false;
   services.samba.extraConfig = ''
     client min protocol = NT1
   '';
