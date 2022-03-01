@@ -49,56 +49,8 @@
       options = [ "bind" ];
     };
 
-  fileSystems."/var/log" =
-    { device = "/persist/var/log";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/db/sudo/lectured" =
-    { device = "/persist/var/db/sudo/lectured";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/lib/bluetooth" =
-    { device = "/persist/var/lib/bluetooth";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/lib/colord" =
-    { device = "/persist/var/lib/colord";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/lib/systemd" =
-    { device = "/persist/var/lib/systemd";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/lib/upower" =
-    { device = "/persist/var/lib/upower";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/lib/AccountsService" =
-    { device = "/persist/var/lib/AccountsService";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/lib/NetworkManager" =
-    { device = "/persist/var/lib/NetworkManager";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/secrets" =
-    { device = "/persist/var/secrets";
+  fileSystems."/var" =
+    { device = "/persist/var";
       fsType = "none";
       options = [ "bind" ];
     };

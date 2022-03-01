@@ -165,6 +165,11 @@ in
     client min protocol = NT1
   '';
 
+  # Enable LXD.
+  virtualisation.lxd.enable = true;
+  virtualisation.lxc.lxcfs.enable = true;
+  # TODO: maybe consider virtualisation.lxd.recommendedSysctlSettings: https://linuxcontainers.org/lxd/docs/master/production-setup/
+
   # Set up the i3 window manager and LightDM display manager.
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.defaultSession = "none+i3";
@@ -276,6 +281,7 @@ in
       "wheel" # Enable ‘sudo’ for the user.
       "adbusers" # Allow use of adb.
       "networkmanager" # Allow network configuration.
+      "lxd" # Allow access to LXD.
     ];
     shell = pkgs.fish;
   } // config.secrets.userOptions;
