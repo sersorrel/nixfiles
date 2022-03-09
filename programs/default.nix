@@ -31,8 +31,8 @@
     ./fzf.nix
     ./gammastep.nix
     ./gdb.nix
-    ./gimp.nix
     ./git.nix
+    ./glimmer
     ./gpg.nix
     ./hexchat
     ./htop.nix
