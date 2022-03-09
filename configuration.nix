@@ -91,6 +91,9 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Use Linux 5.15, for idmapped mounts (LXC): https://github.com/toby63/shiftfs-dkms
+  boot.kernelPackages = assert builtins.compareVersions pkgs.linux.version "5.15" == -1; pkgs.linuxPackages_5_15;
+
   # Enable Switch controller support (pro controller, joycons).
   boot.extraModulePackages = with config.boot.kernelPackages; [ hid-nintendo ];
   services.joycond.enable = true;
