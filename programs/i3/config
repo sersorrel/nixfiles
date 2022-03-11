@@ -301,10 +301,10 @@ bindsym $textier+r exec --no-startup-id containerbackandforth
 
 bindsym $mod+o scratchpad show
 
-bindsym Ctrl+space exec --no-startup-id dunstctl close
-bindsym Ctrl+Shift+space exec --no-startup-id dunstctl close-all
-bindsym Ctrl+Shift+period exec --no-startup-id dunstctl context
-bindsym Ctrl+grave exec --no-startup-id dunstctl history-pop
+bindsym Ctrl+grave exec --no-startup-id dunstctl close
+bindsym Ctrl+Shift+grave exec --no-startup-id dunstctl close-all
+bindsym Ctrl+$alt+grave exec --no-startup-id dunstctl context
+bindsym $mod+Ctrl+grave exec --no-startup-id dunstctl history-pop
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
