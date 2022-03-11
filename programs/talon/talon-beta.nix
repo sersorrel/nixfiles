@@ -12,6 +12,7 @@
 , libGL
 , libffi
 , libxkbcommon_7
+, openssl
 , pulseaudio
 , sqlite
 , udev
@@ -43,6 +44,7 @@ stdenv.mkDerivation rec {
     libGL
     libffi
     libxkbcommon_7
+    openssl
     pulseaudio
     sqlite
     stdenv.cc.cc
