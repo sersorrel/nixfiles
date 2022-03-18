@@ -98,6 +98,9 @@ in
   boot.extraModulePackages = with config.boot.kernelPackages; [ hid-nintendo ];
   services.joycond.enable = true;
 
+  # Allow iotop to work.
+  boot.kernelParams = [ "delayacct" ];
+
   # Configure the machine's hostname and timezone.
   networking.hostName = "the";
   time.timeZone = "Europe/London";
@@ -332,6 +335,7 @@ in
     usbutils
     xorg.xhost
     glxinfo
+    iotop # TODO: evaluate iotop-c
     nvtop
     nvidia-offload # defined above
     polkit_gnome
