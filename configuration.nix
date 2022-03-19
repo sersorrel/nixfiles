@@ -57,6 +57,7 @@ in
       i3status-rust = super.i3status-rust.overrideAttrs (old: {
         patches = (old.patches or []) ++ [
           ./patches/i3status-rust-0001-uptime-warning.patch
+          ./patches/i3status-rust-0002-kdeconnect-zero-battery.patch
         ];
       });
       i3 = super.i3.overrideAttrs (old: {
