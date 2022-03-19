@@ -8,5 +8,6 @@
   # We just make sure some packages are available globally, because using nix-script for latency-sensitive scripts sucks.
   home.packages = with pkgs; [
     jq
+    moreutils
   ];
 }
