@@ -54,12 +54,6 @@ in
           ];
         });
       });
-      i3status-rust = super.i3status-rust.overrideAttrs (old: {
-        patches = (old.patches or []) ++ [
-          ./patches/i3status-rust-0001-uptime-warning.patch
-          ./patches/i3status-rust-0002-kdeconnect-zero-battery.patch
-        ];
-      });
       i3 = super.i3.overrideAttrs (old: {
         patches = (old.patches or []) ++ [
           ./patches/i3-0001-i3bar-border.patch
@@ -184,7 +178,6 @@ in
   services.xserver.desktopManager.wallpaper.mode = "fill";
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.i3.extraPackages = with pkgs; [
-    i3status-rust
     rofi
     i3lock-color
   ];
