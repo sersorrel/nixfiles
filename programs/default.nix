@@ -56,6 +56,7 @@
     ./make.nix
     ./nemo.nix
     ./neovim
+    ./nix-locate.nix
     ./nix-prefetch.nix
     ./nix-script.nix
     ./nix.nix
