@@ -44,6 +44,10 @@
         # we have fzf for more sophisticated searching
         bind \e\[A history-prefix-search-backward
         bind \e\[B history-prefix-search-forward
+        # repaint the prompt on return (both "when a command is executed" as well as "any other time return is pressed at a prompt")
+        # see https://github.com/fish-shell/fish-shell/pull/8142 for inspiration, though we don't actually need that feature
+        # this means that the time shown in the prompt is the time the command was run, not the time the prompt was first printed
+        bind \r repaint execute
       '';
       https = {
         wraps = "http";

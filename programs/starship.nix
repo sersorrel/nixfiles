@@ -54,6 +54,9 @@ in
         disabled = false;
         symbol = "";
       };
+      time = {
+        disabled = false;
+      };
       username = {
         format = "[$user]($style) ";
       };
@@ -63,7 +66,6 @@ in
         ''${esc}\[48;2;242;229;188m${esc}\[K$line_break${esc}\[49m''
         "$jobs"
         "$battery"
-        "$time"
         "$status"
         "$shell"
         "$character"
