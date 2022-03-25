@@ -15,6 +15,14 @@ in
         error_symbol = ''[\$](bold red)'';
         vicmd_symbol = ''[£](bold green)'';
       };
+      custom.lorri = {
+        description = "Whether lorri has finished evaluation yet";
+        symbol = "🚛";
+        format = "with [$symbol($output) ]($style)";
+        command = '' lorri internal stream-events --kind snapshot | jq -r --arg pwd "$PWD" 'if .[keys[0]].nix_file | startswith($pwd + "/") then {Completed: "", Started: "⌛", Failure: "❌"}[keys[0]] else "" end' '';
+        when = "test -v IN_LORRI_SHELL";
+        shell = "sh";
+      };
       directory = {
         truncation_length = 7;
         truncate_to_repo = false;
