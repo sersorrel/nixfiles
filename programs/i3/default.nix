@@ -4,6 +4,7 @@ let
   fa-bluetooth-b = builtins.fromJSON ''"\uF294"'';
   fa-headphones = builtins.fromJSON ''"\uF025"'';
   fa-microphone-slash = builtins.fromJSON ''"\uF131"'';
+  fa-sync = builtins.fromJSON ''"\uF021"'';
   fa-tv = builtins.fromJSON ''"\uF26C"'';
   fa-university = builtins.fromJSON ''"\uF19C"'';
 in
@@ -81,6 +82,12 @@ in
           };
         };
         blocks = [
+          {
+            block = "custom";
+            command = "systemctl --quiet is-active borgbackup-job-persist.service && printf '${fa-sync}'";
+            hide_when_empty = true;
+            shell = "sh";
+          }
           {
             block = "custom";
             command = ''pacmd dump | rg -q "set-source-mute $(pacmd dump | rg -or '$1' 'set-default-source (.+)$') yes" && printf '${fa-microphone-slash}';'';
