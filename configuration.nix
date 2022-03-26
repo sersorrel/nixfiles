@@ -258,6 +258,9 @@ in
   # Don't turn left+right-click into middle-click, at least on mice.
   services.xserver.libinput.mouse.middleEmulation = false;
 
+  # Enable fprintd, to allow use of the fingerprint sensor.
+  services.fprintd.enable = true;
+
   # Support use of the Fish shell.
   programs.fish.enable = true;
   # Don't clobber users' shell functions!
