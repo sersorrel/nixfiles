@@ -12,9 +12,6 @@
       "application/gzip" = "org.gnome.FileRoller.desktop";
       "application/xhtml+xml" = "vim.desktop";
       "application/xml" = "vim.desktop";
-      "audio/mpeg" = "org.gnome.Totem.desktop";
-      "audio/ogg" = "org.gnome.Totem.desktop";
-      "audio/x-wav" = "org.gnome.Totem.desktop";
       "image/jpeg" = "org.gnome.eog.desktop";
       "image/png" = [ "glimmer.desktop" "org.gnome.eog.desktop" ];
       "image/x-dds" = "glimmer.desktop";
@@ -31,10 +28,6 @@
     };
     defaultApplications = {
       "application/pdf" = "org.gnome.Evince.desktop";
-      "audio/flac" = "org.gnome.Totem.desktop";
-      "audio/mp4" = "org.gnome.Totem.desktop";
-      "audio/mpeg" = "org.gnome.Totem.desktop";
-      "audio/x-vorbis+ogg" = "org.gnome.Totem.desktop";
       "image/gif" = "org.gnome.eog.desktop";
       "image/jpeg" = "org.gnome.eog.desktop";
       "image/png" = "org.gnome.eog.desktop";

@@ -54,6 +54,7 @@
     ./lsof.nix
     ./lyx.nix
     ./make.nix
+    ./mpv.nix
     ./nemo.nix
     ./neovim
     ./nix-locate.nix

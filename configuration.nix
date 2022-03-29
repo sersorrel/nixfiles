@@ -43,11 +43,6 @@ in
     })
     (self: super: {
       gnome = super.gnome.overrideScope' (self': super': {
-        totem = super'.totem.overrideAttrs (old: {
-          patches = (old.patches or []) ++ [
-            ./patches/totem-0001-seek-length.patch
-          ];
-        });
         gnome-power-manager = super'.gnome-power-manager.overrideAttrs (old: {
           patches = (old.patches or []) ++ [
             ./patches/gnome-power-manager-0001-desktop-entry.patch
@@ -341,7 +336,6 @@ in
     gnome.cheese
     gnome.file-roller
     gnome.eog
-    gnome.totem
     gnome.gnome-system-monitor
     gnome.gnome-power-manager
     gnome.gnome-boxes
