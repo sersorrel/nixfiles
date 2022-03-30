@@ -306,6 +306,7 @@ in
       "steam"
       "steam-original"
       "steam-runtime"
+      "tixati"
       "brgenml1lpr"
     ];
     permittedInsecurePackages = [
@@ -347,6 +348,7 @@ in
     man-pages-posix
     mullvad-vpn
     ladspaPlugins
+    tixati
   ];
 
   # Install more manual pages.
@@ -420,10 +422,14 @@ in
   '';
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    17810 # Tixati
+  ];
   networking.firewall.allowedTCPPortRanges = [
     { from = 1714; to = 1764; } # KDE Connect
+  ];
+  networking.firewall.allowedUDPPorts = [
+    17810 # Tixati
   ];
   networking.firewall.allowedUDPPortRanges = [
     { from = 1714; to = 1764; } # KDE Connect
