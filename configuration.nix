@@ -96,7 +96,7 @@ in
   time.timeZone = "Europe/London";
 
   # For any individual build, don't use all cores.
-  nix.buildCores = 2;
+  nix.buildCores = 3;
   # Don't build too many derivations in parallel.
   nix.maxJobs = 3;
   # It would be nice to be able to limit the product of those rather than the individual coefficients, but hey.
