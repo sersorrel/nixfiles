@@ -7,7 +7,7 @@ index 90ae43c..cddf1a7 100644
              self.output.set_state(State::Good);
          } else {
 -            self.output.set_state(if charge <= self.bat_critical {
-+            self.output.set_state(if charge == 0 {
++            self.output.set_state(if charge <= 0 {
 +                State::Idle
 +            } else if charge <= self.bat_critical {
                  State::Critical
