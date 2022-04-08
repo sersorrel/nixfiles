@@ -103,6 +103,7 @@
       patches = (old.patches or []) ++ [
         ./patches/i3status-rust-0001-uptime-warning.patch
         ./patches/i3status-rust-0002-kdeconnect-zero-battery.patch
+        ./patches/i3status-rust-0003-kdeconnect-disconnected-idle.patch
       ];
     });
   })

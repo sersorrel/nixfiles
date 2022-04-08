@@ -5,6 +5,7 @@ let
   fa-headphones = builtins.fromJSON ''"\uF025"'';
   fa-microphone-slash = builtins.fromJSON ''"\uF131"'';
   fa-sync = builtins.fromJSON ''"\uF021"'';
+  fa-times = builtins.fromJSON ''"\uF00D"'';
   fa-tv = builtins.fromJSON ''"\uF26C"'';
   fa-university = builtins.fromJSON ''"\uF19C"'';
 in
@@ -161,7 +162,7 @@ in
           {
             block = "kdeconnect";
             format = "{bat_charge:1}";
-            format_disconnected = "";
+            format_disconnected = "${fa-times}";
             bat_warning = 20;
             bat_critical = 10;
           }
