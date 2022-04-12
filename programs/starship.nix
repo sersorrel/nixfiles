@@ -64,6 +64,7 @@ in
       };
       time = {
         disabled = false;
+        format = "now [$time]($style) ";
       };
       username = {
         format = "[$user]($style) ";
