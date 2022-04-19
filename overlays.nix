@@ -22,6 +22,11 @@
     };
   })
   (self: super: {
+    direnv = super.direnv.overrideAttrs (old: {
+      patches = (old.patches or []) ++ [
+        ./patches/direnv-0001-reduce-verbosity.patch
+      ];
+    });
     kitty = super.kitty.overrideAttrs (old: {
       patches = (old.patches or []) ++ [
         ./patches/kitty-0001-sound-theme.patch
