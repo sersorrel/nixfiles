@@ -130,8 +130,12 @@ let
 in
 {
   home.sessionVariables.EDITOR = "nvim";
+  # https://stackoverflow.com/a/61368522/5951320
   xdg.configFile."nvim/after/syntax/nix.vim".text = ''
-    syntax match nixFunctionCall /\v((lib|pkgs|builtins)\.)+/ conceal cchar=.
+    syntax match nixFunctionCall /lib\.\&lib/ conceal cchar=𝕃
+    syntax match nixFunctionCall /pkgs\.\&pkgs/ conceal cchar=ℙ
+    syntax match nixFunctionCall /builtins\.\&builtins/ conceal cchar=𝔹
+    syntax match nixFunctionCall /unstable\.\&unstable/ conceal cchar=𝕌
   '';
   programs.neovim = {
     enable = true;
