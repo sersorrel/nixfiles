@@ -84,6 +84,7 @@
     ./steam.nix
     ./systemd.nix
     ./talon
+    ./tio.nix
     ./todoist.nix
     ./unicode.nix
     ./vim
