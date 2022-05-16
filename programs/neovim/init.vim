@@ -36,16 +36,16 @@ nnoremap <silent> <CR> :noh<CR>
 xnoremap < <gv
 xnoremap > >gv
 
-" j and k move vertically by visual line.
+" j and k move vertically by visual line (unless used with a count).
 " Normal mode
-nnoremap j gj
-nnoremap k gk
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 " Visual mode
-vnoremap j gj
-vnoremap k gk
+vnoremap <expr> j v:count ? 'j' : 'gj'
+vnoremap <expr> k v:count ? 'k' : 'gk'
 " Operator-pending mode (e.g. after d or c)
-onoremap j gj
-onoremap k gk
+onoremap <expr> j v:count ? 'j' : 'gj'
+onoremap <expr> k v:count ? 'k' : 'gk'
 " ...as do arrow keys.
 " Normal, visual and operator-pending modes
 nnoremap <Down> gj
