@@ -152,7 +152,7 @@ in
           }
           {
             block = "custom";
-            command = ''printf '${fa-tv} '; nvidia-smi --query-gpu=memory.used,memory.total --format=csv,noheader,nounits | awk 'BEGIN { FS = ", " } ; { printf "%.1f/%.1f",$1/1000,$2/1000 }';'';
+            command = ''printf '${fa-tv} '; nvidia-smi --query-gpu=memory.used,memory.total --format=csv,noheader,nounits | awk 'BEGIN { FS = ", " } ; { printf "%.1f/%.1f",$1/1024,$2/1024 }';'';
             shell = "sh";
           }
           {
