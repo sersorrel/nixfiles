@@ -140,6 +140,16 @@ in
   # Enable UPower, mostly so that applications can get the battery level.
   services.upower.enable = true;
 
+  # Turn any attached Launchpad off and on on shutdown/suspend and startup/resume.
+  powerManagement.powerDownCommands = ''
+    launchpad_port=$(${pkgs.alsa-utils}/bin/amidi -l | ${pkgs.gawk}/bin/awk '/Launchpad Mini MK3 LPMiniMK3 MI/ { print $2 }')
+    test -n "$launchpad_port" && ${pkgs.alsa-utils}/bin/amidi -p "$launchpad_port" -S "F0 00 20 29 02 0D 09 00 F7"
+  '';
+  powerManagement.powerUpCommands = ''
+    launchpad_port=$(${pkgs.alsa-utils}/bin/amidi -l | ${pkgs.gawk}/bin/awk '/Launchpad Mini MK3 LPMiniMK3 MI/ { print $2 }')
+    test -n "$launchpad_port" && ${pkgs.alsa-utils}/bin/amidi -p "$launchpad_port" -S "F0 00 20 29 02 0D 09 01 F7"
+  '';
+
   # Let applications store settings in dconf.
   programs.dconf.enable = true;
   services.dbus.packages = with pkgs; [ gnome.dconf ];
