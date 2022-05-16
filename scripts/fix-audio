@@ -172,7 +172,7 @@ else # if bluetooth headphones aren't connected, try and connect
 		sleep 3
 		dbus-send --print-reply --system --dest=org.bluez /org/bluez/hci0/dev_$(tr : _ <<< "$sec_headphones_mac") org.bluez.Device1.Connect >/dev/null
 	fi
-	sleep 1
+	sleep 3
 	refresh_state
 fi
 
