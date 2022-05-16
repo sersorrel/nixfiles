@@ -164,6 +164,11 @@ in
   services.mullvad-vpn.enable = true;
   networking.firewall.checkReversePath = "loose"; # https://github.com/NixOS/nixpkgs/pull/121906
 
+  services.jupyter.enable = true;
+  services.jupyter.password = "''"; # require an auth token printed at startup
+  users.users.jupyter.group = "jupyter";
+  users.users.jupyter.isSystemUser = true;
+
   # Enable Samba, and allow SMBv1.
   services.samba.enable = true;
   services.samba.enableNmbd = false;
