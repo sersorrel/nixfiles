@@ -41,6 +41,7 @@
     ./i3
     ./inkscape.nix
     ./insync.nix
+    ./jetbrains.nix
     ./jq.nix
     ./kdeconnect.nix
     ./kdenlive.nix
