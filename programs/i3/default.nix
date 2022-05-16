@@ -125,6 +125,7 @@ in
             block = "net";
             device = "wlp3s0";
             format = "{ssid}";
+            format_alt = "";
           }
           {
             block = "net";
