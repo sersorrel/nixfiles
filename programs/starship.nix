@@ -15,11 +15,14 @@ in
         error_symbol = ''[\$](bold red)'';
         vicmd_symbol = ''[£](bold green)'';
       };
+      # TODO: this maybe causes some problems?
+      #     INFO Failed accepting a client connection, accept_error: Accept(Os { code: 24, kind: Uncategorized, message: "Too many open files" })
+      # Might be unrelated, though: https://github.com/nix-community/lorri/issues/82
       custom.lorri = {
         description = "Whether lorri has finished evaluation yet";
         symbol = "🚛";
         format = "with [$symbol($output) ]($style)";
-        command = '' lorri internal stream-events --kind snapshot | jq -r --arg pwd "$PWD" 'if .[keys[0]].nix_file | startswith($pwd + "/") then {Completed: "", Started: "⌛", Failure: "❌"}[keys[0]] else "" end' '';
+        command = '' timeout 1 lorri internal stream-events --kind snapshot | jq -r --arg pwd "$PWD" 'if .[keys[0]].nix_file | startswith($pwd + "/") then {Completed: "", Started: "⌛", Failure: "❌"}[keys[0]] else "" end' '';
         when = "test -v IN_LORRI_SHELL";
         shell = "sh";
       };
