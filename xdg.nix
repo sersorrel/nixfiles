@@ -21,6 +21,7 @@
       "text/x-java" = "vim.desktop";
       "text/x-makefile" = "vim.desktop";
       "text/x-python" = "vim.desktop";
+      "x-scheme-handler/kdeconnect" = "nemo.desktop";
     };
     associations.removed = {
       "audio/mp4" = "org.kde.kid3-qt.desktop";
@@ -28,6 +29,7 @@
     };
     defaultApplications = {
       "application/pdf" = "org.gnome.Evince.desktop";
+      "application/x-desktop" = "vim.desktop";
       "image/gif" = "org.gnome.eog.desktop";
       "image/jpeg" = "org.gnome.eog.desktop";
       "image/png" = "org.gnome.eog.desktop";
@@ -37,6 +39,7 @@
       "x-scheme-handler/about" = "google-chrome.desktop";
       "x-scheme-handler/http" = "google-chrome.desktop";
       "x-scheme-handler/https" = "google-chrome.desktop";
+      "x-scheme-handler/kdeconnect" = "nemo.desktop";
       "x-scheme-handler/mailto" = "google-chrome.desktop";
       "x-scheme-handler/unknown" = "google-chrome.desktop";
       "x-scheme-handler/webcal" = "google-chrome.desktop";
