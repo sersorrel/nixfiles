@@ -296,6 +296,7 @@ in
       "adbusers" # Allow use of adb.
       "networkmanager" # Allow network configuration.
       "lxd" # Allow access to LXD.
+      "dialout" # Allow use of e.g. serial devices
     ];
     shell = pkgs.fish;
   } // config.secrets.userOptions;
