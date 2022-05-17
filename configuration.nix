@@ -297,6 +297,7 @@ in
       "networkmanager" # Allow network configuration.
       "lxd" # Allow access to LXD.
       "dialout" # Allow use of e.g. serial devices
+      "wireshark" # Allow use of Wireshark
     ];
     shell = pkgs.fish;
   } // config.secrets.userOptions;
@@ -373,6 +374,10 @@ in
   # Make Steam Work™.
   programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
+
+  # Enable Wireshark.
+  programs.wireshark.enable = true;
+  programs.wireshark.package = pkgs.wireshark;
 
   # Attempt to permit colour management.
   services.colord.enable = true;
