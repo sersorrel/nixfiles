@@ -473,12 +473,14 @@ in
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     17810 # Tixati
+    22000 # Syncthing
   ];
   networking.firewall.allowedTCPPortRanges = [
     { from = 1714; to = 1764; } # KDE Connect
   ];
   networking.firewall.allowedUDPPorts = [
     17810 # Tixati
+    22000 21027 # Syncthing
   ];
   networking.firewall.allowedUDPPortRanges = [
     { from = 1714; to = 1764; } # KDE Connect

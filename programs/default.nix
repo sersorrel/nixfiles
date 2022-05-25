@@ -82,6 +82,7 @@
     ./ssh.nix
     ./starship.nix
     ./steam.nix
+    ./syncthing.nix
     ./systemd.nix
     ./talon
     ./tio.nix
