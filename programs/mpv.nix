@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.mpv = {
@@ -12,6 +12,9 @@
       HOME = "seek 0 absolute+exact";
       END = "seek 100 absolute-percent+exact";
     };
+    scripts = [
+      pkgs.mpvScripts.mpris
+    ];
     # TODO: mute on step forwards: https://github.com/mpv-player/mpv/issues/6104
   };
 }
