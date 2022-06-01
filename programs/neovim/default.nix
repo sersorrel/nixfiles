@@ -127,6 +127,15 @@ let
       sha256 = "0mppgcmb83wpvn33vadk0wq6w6pg9cq37818d1alk6ka0fdj7ack";
     };
   };
+  vim-textobj-quote = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-textobj-quote";
+    src = pkgs.fetchFromGitHub {
+      owner = "preservim";
+      repo = "vim-textobj-quote";
+      rev = "7ce5b324ebd21f3bc98ec11e534ed4e9677834c9";
+      sha256 = "09k6j3a1dbc9l9ydsbh3cad2ibdwr4gkxp70hphf3q43gamm3x51";
+    };
+  };
 in
 {
   home.sessionVariables.EDITOR = "nvim";
@@ -253,6 +262,16 @@ in
       vim-textobj-comment
       vim-textobj-entire
       vim-textobj-line
+      {
+        plugin = vim-textobj-quote;
+        config = ''
+          let g:textobj#quote#educate = 0
+          augroup textobj_quote
+            au!
+            au FileType * call textobj#quote#init()
+          augroup END
+        '';
+      }
       vim-textobj-user
       # Keybinds
       conflict-marker-vim
