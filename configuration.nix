@@ -191,7 +191,7 @@ in
     shadowExclude = [
       "class_g = 'i3-frame'"
       "class_g = 'i3bar'"
-      "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'" # windows in unselected tabs
+      "_NET_WM_STATE@[*]:a *?= '_NET_WM_STATE_HIDDEN'" # windows in unselected tabs
     ];
     settings.xinerama-shadow-crop = true;
     # Fix flickering after DPMS off.
