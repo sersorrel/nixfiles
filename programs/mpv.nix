@@ -7,6 +7,7 @@
     config = {
       keep-open = true;
       osd-on-seek = false;
+      osd-msg3 = "\${osd-sym-cc} \${time-pos} / \${duration} (\${percent-pos}%), \${time-remaining} left";
     };
     bindings = {
       HOME = "seek 0 absolute+exact";
