@@ -87,8 +87,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "rbong";
       repo = "vim-crystalline";
-      rev = "32698e3560ddb68bbb648fcfb677e9af45f70a79";
-      sha256 = "0sssm39rlixd3hfqwa0x9y25jbdihdm9frmwrrfpvidipplafy0q";
+      rev = "5e797dbebbb7f2863d91a529236341f0971227ce";
+      sha256 = "sha256-uaR8gNcCJBa7SmlKxuaT0BJPF8G6RDMMIPjqKJ8xPMw";
     };
   };
   vim-one = pkgs.vimUtils.buildVimPlugin {
@@ -193,7 +193,7 @@ in
             endif
             let l:s .= ' %f%h%w%m%r '
             if a:current
-              let l:s .= crystalline#right_sep("", 'Fill') . ' %{fugitive#head()}'
+              let l:s .= crystalline#right_sep("", 'Fill') . ' %{FugitiveHead()}'
             endif
             let l:s .= '%='
             if a:current

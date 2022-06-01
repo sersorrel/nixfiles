@@ -1,7 +1,5 @@
 [
   (self: super: let unstable = import <nixos-unstable> { overlays = []; }; in {
-    kitty = assert builtins.compareVersions super.kitty.version "0.24.0" == -1; unstable.kitty;
-    flameshot = assert builtins.compareVersions super.flameshot.version "11.0.0" == -1; unstable.flameshot;
     rust-analyzer = unstable.rust-analyzer; # required to work properly with new Cargo versions
   })
   # https://github.com/flameshot-org/flameshot/issues/2302
@@ -15,11 +13,6 @@
         sha256 = "0dckspmzyakn68r84j58njl73n5k662d0p6517v5jmwcqm3qrrkm";
       };
     });
-  })
-  (self: super: {
-    todoist-electron = super.todoist-electron.override {
-      electron = super.electron_15;
-    };
   })
   (self: super: {
     direnv = super.direnv.overrideAttrs (old: {

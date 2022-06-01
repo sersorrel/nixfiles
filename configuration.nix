@@ -21,17 +21,6 @@ in
 
   nixpkgs.overlays = [
     (self: super: {
-      picom = super.picom.overrideAttrs (old: {
-        src = pkgs.fetchFromGitHub {
-          owner = "yshui";
-          repo = "picom";
-          rev = "78e8666498490ae25349a44f156d0811b30abb70";
-          sha256 = "0lx30w9ccrivnm05i1m67wvhkiw166i8v0gdj6ql6jganrwnwzwk";
-          fetchSubmodules = true;
-        };
-      });
-    })
-    (self: super: {
       i3lock-color = super.i3lock-color.overrideAttrs (old: {
         src = pkgs.fetchFromGitHub {
           owner = "sersorrel";
@@ -55,17 +44,6 @@ in
         ];
       });
     })
-    (self: super: {
-      # https://github.com/NixOS/nixpkgs/pull/127289
-      # specifically: "Support OSC 8 hyperlinks when -R is in effect."
-      less = super.less.overrideAttrs (old: rec {
-        version = "581.2";
-        src = pkgs.fetchurl {
-          url = "https://www.greenwoodsoftware.com/less/less-${version}.tar.gz";
-          sha256 = "0fyqslvrasv19qjvqrwfwz2n7mnm93y61x9bcx09ga90mxyb8d6f";
-        };
-      });
-    })
   ];
 
   # Override various parts of the detected hardware configuration.
@@ -81,11 +59,8 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use Linux 5.15, for idmapped mounts (LXC): https://github.com/toby63/shiftfs-dkms
-  boot.kernelPackages = assert builtins.compareVersions pkgs.linux.version "5.15" == -1; pkgs.linuxPackages_5_15;
-
   # Enable Switch controller support (pro controller, joycons).
-  boot.extraModulePackages = with config.boot.kernelPackages; [ hid-nintendo ];
+  boot.extraModulePackages = with config.boot.kernelPackages; assert builtins.compareVersions pkgs.linux.version "5.16" == -1; [ hid-nintendo ];
   services.joycond.enable = true;
 
   # Allow iotop to work.
@@ -152,7 +127,6 @@ in
 
   # Let applications store settings in dconf.
   programs.dconf.enable = true;
-  services.dbus.packages = with pkgs; [ gnome.dconf ];
 
   # Make nautilus/nemo happy.
   services.gvfs.enable = true;
@@ -357,7 +331,7 @@ in
     gnome.gnome-system-monitor
     gnome.gnome-power-manager
     gnome.gnome-boxes
-    gnome.networkmanagerapplet
+    networkmanagerapplet
     gparted
     # displaycal
     gcc

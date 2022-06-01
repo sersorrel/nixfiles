@@ -76,7 +76,6 @@ let
 in
 {
   name = "vim";
-  wrapGui = true;
   vimrcConfig.beforePlugins = ''
     set nocompatible
     " Prevent vim-polyglot messing with random settings.

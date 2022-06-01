@@ -34,8 +34,8 @@ in
     };
     xdg.configFile."i3/config".text = (builtins.readFile ./config) + "\n" + lib.strings.concatStringsSep "\n" config.programs.i3.extraConfig;
     xdg.configFile."rofi/config.rasi".text = ''
+      @theme "gruvbox-dark"
       configuration {
-        theme: "gruvbox-dark";
         show-icons: true;
         icon-theme: "Paper";
         modi: "window,run,ssh,drun";
