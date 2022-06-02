@@ -15,7 +15,7 @@ nnoremap gb :bn<CR>
 nnoremap gB :bp<CR>
 nnoremap <c-left> :bp<CR>
 nnoremap <c-right> :bn<CR>
-nnoremap <c-q> :bd<CR>
+nnoremap <c-q> :close<CR>
 
 " Window-switching keybinds.
 nnoremap <silent> <c-h> <c-w><c-h>
