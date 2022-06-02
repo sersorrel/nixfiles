@@ -119,6 +119,9 @@ endfunction
 command Diff call Diff()
 command Doff call Doff()
 
+" When writing to a file, copy any backup, don't rename and write a new file.
+set backupcopy=yes
+
 " Don't redraw in the middle of commands.
 set lazyredraw
 
