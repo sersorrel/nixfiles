@@ -34,7 +34,7 @@ in
         separator_color = "frame";
         frame_width = 0;
         idle_threshold = 600;
-        font = "Source Sans 3 VF";
+        font = "Source Sans Variable";
         markup = "full";
         format = "%a: <b>%s</b>\\n%b";
         show_age_threshold = 60;
